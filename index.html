@@ -1,40 +1,32 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LoadStar Agencia | TikTok LIVE LATAM</title>
-  <meta name="description" content="Agencia para creadores de TikTok LIVE en Latinoamérica. Soporte real, acompañamiento y crecimiento con estructura." />
+  <meta name="description" content="Agencia para creadores de TikTok LIVE en Latinoamérica. Soporte real, acompañamiento y crecimiento con estructura.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
   <style>
     :root {
       --bg: #05030a;
-      --bg-soft: rgba(255,255,255,0.05);
-      --card: rgba(255,255,255,0.06);
       --line: rgba(255,255,255,0.10);
       --text: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.68);
       --muted-2: rgba(255,255,255,0.52);
       --purple: #8b5cf6;
       --purple-2: #a855f7;
-      --purple-3: #c084fc;
       --shadow: 0 20px 60px rgba(120, 70, 255, 0.18);
       --radius: 24px;
-      --radius-sm: 18px;
       --max: 1200px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
-        Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background:
         radial-gradient(circle at 50% -10%, rgba(168, 85, 247, 0.28), transparent 35%),
         radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.14), transparent 25%),
@@ -73,6 +65,7 @@
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+      gap: 12px;
     }
 
     .brand {
@@ -102,7 +95,6 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       min-height: 46px;
       padding: 0 20px;
       border-radius: 999px;
@@ -180,7 +172,8 @@
 
     .hero-glow {
       position: absolute;
-      inset: auto 50% -60px;
+      left: 50%;
+      bottom: -60px;
       transform: translateX(-50%);
       width: 840px;
       height: 320px;
@@ -300,20 +293,11 @@
       gap: 18px;
     }
 
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
     .card {
-      position: relative;
       padding: 28px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
@@ -322,7 +306,6 @@
         rgba(255,255,255,0.02);
       backdrop-filter: blur(12px);
       transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
-      overflow: hidden;
     }
 
     .card:hover {
@@ -350,10 +333,6 @@
       color: #e9d5ff;
       margin-bottom: 8px;
       display: inline-block;
-    }
-
-    .process {
-      counter-reset: step;
     }
 
     .step {
@@ -428,10 +407,6 @@
       font-size: 18px;
     }
 
-    .cta .hero-actions {
-      margin-top: 28px;
-    }
-
     .footer {
       padding: 36px 0 56px;
       color: var(--muted-2);
@@ -451,69 +426,41 @@
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
     }
 
     @media (max-width: 1024px) {
-      .grid-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
-      .container {
-        width: min(var(--max), calc(100% - 24px));
-      }
-
+      .container { width: min(var(--max), calc(100% - 24px)); }
       .nav-inner {
         border-radius: 24px;
         padding: 14px;
       }
-
-      .nav-actions .btn-secondary {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 54px;
-      }
-
+      .nav-actions .btn-secondary { display: none; }
+      .hero { padding-top: 54px; }
       .showcase {
         padding: 14px;
         border-radius: 24px;
       }
-
       .showcase-panel {
         min-height: 340px;
         border-radius: 20px;
       }
-
-      .section {
-        padding: 64px 0;
-      }
-
+      .section { padding: 64px 0; }
       .grid-2,
-      .grid-4 {
-        grid-template-columns: 1fr;
-      }
-
+      .grid-4 { grid-template-columns: 1fr; }
       .card,
-      .cta {
-        padding: 22px;
-      }
-
+      .cta { padding: 22px; }
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
       }
-
-      .btn {
-        width: 100%;
-      }
+      .btn { width: 100%; }
     }
   </style>
 </head>
@@ -527,13 +474,13 @@
         </div>
         <div class="nav-actions">
           <a class="btn btn-secondary" href="#faq">Preguntas frecuentes</a>
-          <a class="btn btn-primary" href="https://wa.me/5215512345678?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20agencia" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
+          <a class="btn btn-primary" href="https://wa.me/5215512345678?text=Hola,%20quiero%20información%20sobre%20la%20agencia" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="container">
       <div class="eyebrow reveal">Agencia para creadores en Latinoamérica</div>
       <h1 class="reveal">Únete a una agencia real y crece en TikTok LIVE</h1>
@@ -654,12 +601,10 @@
     <div class="container">
       <div class="section-head reveal">
         <h3>¿Cómo funciona?</h3>
-        <p>
-          Un proceso simple, claro y sin presión.
-        </p>
+        <p>Un proceso simple, claro y sin presión.</p>
       </div>
 
-      <div class="grid-2 process">
+      <div class="grid-2">
         <div class="card reveal step">
           <div class="step-num">1</div>
           <div class="step-text">
@@ -699,9 +644,7 @@
     <div class="container">
       <div class="section-head reveal">
         <h3>Preguntas frecuentes</h3>
-        <p>
-          Las dudas más comunes antes de hablar con una agencia.
-        </p>
+        <p>Las dudas más comunes antes de hablar con una agencia.</p>
       </div>
 
       <div class="card reveal">
@@ -717,7 +660,7 @@
           <h4>¿Necesito mucha experiencia en LIVE?</h4>
           <p>No necesariamente. Valoramos tanto a creadores con experiencia como a perfiles con potencial y constancia.</p>
         </div>
-        <div class="faq-item" style="border-bottom:none; padding-bottom: 0;">
+        <div class="faq-item" style="border-bottom:none; padding-bottom:0;">
           <h4>¿En qué países trabajan?</h4>
           <p>Trabajamos con creadores de varios países de LATAM, incluyendo México, Colombia, Argentina y Perú.</p>
         </div>
@@ -734,29 +677,29 @@
           habla con nosotros por WhatsApp.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://wa.me/85292504832?text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20agencia" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
-          <a class="btn btn-secondary" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Volver arriba</a>
+          <a class="btn btn-primary" href="https://wa.me/5215512345678?text=Hola,%20quiero%20más%20información%20sobre%20la%20agencia" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
+          <a class="btn btn-secondary" href="#top">Volver arriba</a>
         </div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container">
-      LoadStar Agencia · TikTok LIVE LATAM
-    </div>
+    <div class="container">LoadStar Agencia · TikTok LIVE LATAM</div>
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
     }, { threshold: 0.12 });
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
