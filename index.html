@@ -1,42 +1,110 @@
-<!doctype html>
+export default function LoadStarLandingPage() {
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {/* HERO */}
+      <section className="relative flex flex-col items-center justify-center text-center px-6 py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-700/30 via-black to-black" />
+        <div className="absolute w-[500px] h-[500px] bg-purple-500/20 blur-3xl rounded-full top-[-100px]" />
 
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LoadStar Agencia</title>
-  <meta name="description" content="Agencia de TikTok LIVE en Latinoamérica" />
-</head>
-<body style="margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#111;">
+        <div className="relative z-10 max-w-3xl">
+          <h1 className="text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
+            Únete a una agencia real
+            <br />
+            y crece en TikTok LIVE
+          </h1>
 
-  <div style="max-width:900px;margin:0 auto;padding:80px 20px;text-align:center;">
-    <h1 style="font-size:42px;margin-bottom:16px;">Únete a LoadStar Agencia</h1>
-    <p style="font-size:18px;margin-bottom:24px;">
-      Agencia para streamers de TikTok LIVE en Latinoamérica
-    </p>
+          <p className="mt-6 text-lg text-white/70">
+            Trabajamos con creadores en Latinoamérica que quieren crecer,
+            monetizar y tener acompañamiento real.
+          </p>
 
-```
-<a href="https://wa.me/85292504832"
-   style="display:inline-block;padding:14px 26px;background:#111;color:#fff;text-decoration:none;border-radius:10px;">
-  Aplicar por WhatsApp
-</a>
-```
+          <div className="mt-8 flex justify-center gap-4">
+            <a
+              href="https://wa.me/5215512345678"
+              className="px-6 py-3 rounded-full bg-white text-black font-medium hover:scale-105 transition"
+            >
+              Aplicar ahora
+            </a>
+            <a
+              href="#info"
+              className="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
+            >
+              Más información
+            </a>
+          </div>
+        </div>
+      </section>
 
-  </div>
+      {/* TRUST */}
+      <section className="py-24 px-6 text-center max-w-4xl mx-auto">
+        <h2 className="text-3xl font-semibold">
+          No somos una agencia cualquiera
+        </h2>
+        <p className="mt-6 text-white/70">
+          Sabemos que muchos creadores dudan antes de unirse a una agencia.
+          Por eso trabajamos con transparencia, soporte real y comunicación directa.
+        </p>
+      </section>
 
-  <div style="max-width:900px;margin:0 auto;padding:20px 20px 60px;">
-    <h2>¿Qué ofrecemos?</h2>
-    <p>Capacitación, soporte 1 a 1, estrategias de crecimiento y eventos oficiales.</p>
+      {/* BENEFITS */}
+      <section id="info" className="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+        {[
+          ["Soporte real 1 a 1", "No te dejamos solo. Te guiamos paso a paso."],
+          ["Sin pagos", "No tienes que pagar para unirte."],
+          ["Estrategia", "Te ayudamos a crecer con dirección."],
+          ["Eventos", "Te acompañamos en dinámicas y oportunidades."],
+        ].map((item, i) => (
+          <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition">
+            <h3 className="text-xl font-semibold">{item[0]}</h3>
+            <p className="mt-3 text-white/70">{item[1]}</p>
+          </div>
+        ))}
+      </section>
 
-```
-<h2>¿A quién buscamos?</h2>
-<p>Creadores de México, Colombia, Argentina, Perú y otros países de LATAM.</p>
+      {/* PROCESS */}
+      <section className="py-24 px-6 text-center max-w-4xl mx-auto">
+        <h2 className="text-3xl font-semibold">¿Cómo funciona?</h2>
+        <div className="mt-10 space-y-4 text-white/70">
+          <p>1. Hablas con nosotros por WhatsApp</p>
+          <p>2. Revisamos tu perfil</p>
+          <p>3. Te explicamos todo claramente</p>
+          <p>4. Empiezas con nuestro acompañamiento</p>
+        </div>
+      </section>
 
-<h2>Contacto</h2>
-<p>Email: talent@loadstaragencia.com</p>
-```
+      {/* CTA */}
+      <section className="py-32 text-center">
+        <h2 className="text-4xl font-semibold">
+          Da el siguiente paso
+        </h2>
+        <p className="mt-4 text-white/60">
+          Habla con nosotros y resuelve tus dudas sin compromiso
+        </p>
+        <a
+          href="https://wa.me/5215512345678"
+          className="inline-block mt-8 px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-500 transition"
+        >
+          Hablar por WhatsApp
+        </a>
+      </section>
 
-  </div>
+      {/* FAQ */}
+      <section className="py-24 px-6 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-semibold text-center">Preguntas frecuentes</h2>
 
-</body>
-</html>
+        <div className="mt-10 space-y-6">
+          {[
+            ["¿Tengo que pagar?", "No. No cobramos por unirte."],
+            ["¿Es seguro?", "Sí. Comunicación directa y transparente."],
+            ["¿Necesito experiencia?", "No es obligatorio."],
+          ].map((item, i) => (
+            <div key={i} className="border-b border-white/10 pb-4">
+              <h3 className="font-medium">{item[0]}</h3>
+              <p className="text-white/60 mt-2">{item[1]}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
