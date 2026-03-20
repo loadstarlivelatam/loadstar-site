@@ -93,19 +93,37 @@
 
     .brand {
       display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 8px 22px rgba(139,92,246,0.35);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .brand-text {
+      display: flex;
       flex-direction: column;
       gap: 2px;
       min-width: 0;
     }
 
-    .brand strong {
+    .brand-text strong {
       font-size: 16px;
       font-weight: 650;
       letter-spacing: -0.02em;
       white-space: nowrap;
     }
 
-    .brand span {
+    .brand-text span {
       font-size: 12px;
       color: var(--muted-2);
       white-space: nowrap;
@@ -169,12 +187,12 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 18px;
-      padding: 8px 14px;
+      padding: 10px 18px;
       border-radius: 999px;
-      border: 1px solid rgba(192,132,252,0.22);
-      background: rgba(168,85,247,0.08);
+      border: 1px solid rgba(192,132,252,0.25);
+      background: rgba(168,85,247,0.10);
       color: #ecd9ff;
-      font-size: 13px;
+      font-size: clamp(14px, 2vw, 18px);
       letter-spacing: 0.02em;
     }
 
@@ -530,9 +548,13 @@
     }
 
     .manager-subtitle {
-      margin: 10px 0 24px;
+      margin: 10px auto 24px;
       color: rgba(255,255,255,0.68);
-      font-size: 16px;
+      font-size: clamp(13px, 1.8vw, 15px);
+      line-height: 1.55;
+      text-align: center;
+      max-width: 520px;
+      word-break: break-word;
     }
 
     .manager-grid {
@@ -636,11 +658,17 @@
         padding: 14px;
       }
 
-      .brand strong {
+      .logo {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+      }
+
+      .brand-text strong {
         font-size: 15px;
       }
 
-      .brand span {
+      .brand-text span {
         font-size: 11px;
       }
 
@@ -761,8 +789,8 @@
       }
 
       .manager-subtitle {
-        margin-bottom: 18px;
-        font-size: 15px;
+        margin-bottom: 16px;
+        max-width: 100%;
       }
 
       .manager-grid {
@@ -793,11 +821,20 @@
         padding: 12px 12px;
       }
 
-      .brand strong {
+      .logo {
+        width: 30px;
+        height: 30px;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand-text strong {
         font-size: 14px;
       }
 
-      .brand span {
+      .brand-text span {
         font-size: 10px;
       }
 
@@ -816,8 +853,8 @@
       }
 
       .eyebrow {
-        font-size: 12px;
-        padding: 7px 12px;
+        font-size: 13px;
+        padding: 8px 14px;
       }
 
       .manager-grid {
@@ -831,8 +868,11 @@
     <div class="container">
       <div class="nav-inner">
         <div class="brand">
-          <strong>LoadStar Agencia</strong>
-          <span>TikTok LIVE LATAM</span>
+          <img src="/logo.jpg" class="logo" alt="LoadStar logo">
+          <div class="brand-text">
+            <strong>LoadStar Agencia</strong>
+            <span>TikTok LIVE LATAM</span>
+          </div>
         </div>
         <div class="nav-actions">
           <a class="btn btn-secondary" href="#faq">Preguntas frecuentes</a>
@@ -1130,7 +1170,7 @@
 
         <a class="manager-card" href="https://www.tiktok.com/t/ZSygj5Wtu/" target="_blank" rel="noopener noreferrer">
           <div class="manager-avatar">
-           <img src="/logo.jpg" alt="@manager08">
+            <img src="/logo.jpg" alt="@manager08">
           </div>
           <span>@loadstar555</span>
         </a>
