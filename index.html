@@ -49,11 +49,6 @@
       --radius: 24px;
       --radius-lg: 32px;
       --max: 1200px;
-
-      --tiktok-cyan: #25F4EE;
-      --tiktok-pink: #FE2C55;
-      --tiktok-cyan-soft: rgba(37, 244, 238, 0.10);
-      --tiktok-pink-soft: rgba(254, 44, 85, 0.10);
     }
 
     * {
@@ -185,20 +180,14 @@
     }
 
     .btn-primary {
-      position: relative;
-      overflow: hidden;
       background: linear-gradient(135deg, var(--purple-2), var(--purple));
       color: white;
-      box-shadow:
-        0 12px 30px rgba(139, 92, 246, 0.34),
-        0 0 18px rgba(168,85,247,0.25);
+      box-shadow: 0 12px 30px rgba(139, 92, 246, 0.34);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow:
-        0 18px 40px rgba(139, 92, 246, 0.42),
-        0 0 24px rgba(168,85,247,0.35);
+      box-shadow: 0 18px 40px rgba(139, 92, 246, 0.42);
     }
 
     .btn-secondary {
@@ -219,20 +208,11 @@
       text-align: center;
     }
 
-    .hero-badges {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
     .eyebrow {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 0;
+      margin-bottom: 18px;
       padding: 10px 18px;
       border-radius: 999px;
       border: 1px solid rgba(192,132,252,0.25);
@@ -240,21 +220,6 @@
       color: #ecd9ff;
       font-size: clamp(14px, 2vw, 18px);
       letter-spacing: 0.02em;
-    }
-
-    .live-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 9px 15px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: #fff;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 0 18px rgba(168,85,247,0.25);
     }
 
     .hero h1 {
@@ -313,64 +278,13 @@
       min-height: 420px;
       border-radius: 28px;
       background:
-        radial-gradient(circle at 50% 0%, rgba(168,85,247,0.28), transparent 38%),
+        radial-gradient(circle at 50% 0%, rgba(168,85,247,0.35), transparent 38%),
         linear-gradient(180deg, rgba(17,14,30,0.98), rgba(7,5,14,0.98));
       border: 1px solid rgba(255,255,255,0.06);
       display: grid;
       place-items: center;
       padding: 40px 20px;
       overflow: hidden;
-    }
-
-    .tiktok-glow {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(60px);
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.58;
-    }
-
-    .tiktok-glow.purple {
-      width: 260px;
-      height: 260px;
-      background: rgba(139,92,246,0.34);
-      left: 8%;
-      top: 10%;
-    }
-
-    .tiktok-glow.mix {
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(168,85,247,0.25), rgba(254,44,85,0.10));
-      right: 10%;
-      bottom: 12%;
-    }
-
-    .tiktok-float {
-      position: absolute;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 42px;
-      padding: 0 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: white;
-      font-size: 12px;
-      letter-spacing: 0.10em;
-      font-weight: 700;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      animation: floatSoft 6s ease-in-out infinite;
-    }
-
-    .float-live {
-      top: 18%;
-      left: 14%;
-      box-shadow: 0 0 16px rgba(168,85,247,0.30);
     }
 
     .orb {
@@ -385,7 +299,7 @@
     .orb.one {
       width: 180px;
       height: 180px;
-      background: rgba(168,85,247,0.22);
+      background: rgba(168,85,247,0.28);
       top: 50px;
       left: 11%;
     }
@@ -393,7 +307,7 @@
     .orb.two {
       width: 220px;
       height: 220px;
-      background: rgba(139,92,246,0.18);
+      background: rgba(139,92,246,0.22);
       bottom: 40px;
       right: 12%;
       animation-delay: 1.2s;
@@ -402,7 +316,7 @@
     .orb.three {
       width: 110px;
       height: 110px;
-      background: rgba(216,180,254,0.16);
+      background: rgba(216,180,254,0.22);
       top: 26%;
       right: 30%;
       animation-delay: 2.2s;
@@ -410,7 +324,7 @@
 
     .showcase-copy {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       text-align: center;
       max-width: 780px;
     }
@@ -616,7 +530,7 @@
       z-index: 2;
       width: min(920px, calc(100% - 24px));
       margin: 6vh auto 0;
-      padding: 34px 28px 28px;
+      padding: 28px;
       border-radius: 28px;
       border: 1px solid rgba(255,255,255,0.10);
       background:
@@ -646,33 +560,24 @@
 
     .manager-close {
       position: absolute;
-      top: 24px;
-      right: 24px;
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      border-radius: 999px;
+      top: 20px;
+      right: 20px;
+      width: 42px;
+      height: 42px;
       border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
       background: rgba(255,255,255,0.04);
-      color: #fff;
-      cursor: pointer;
-      transition: .2s ease;
-      z-index: 5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: white;
       font-size: 24px;
       line-height: 1;
-      text-align: center;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: .2s ease;
     }
 
     .manager-close:hover {
       background: rgba(255,255,255,0.10);
-    }
-
-    .manager-close span {
-      display: block;
-      transform: translateY(-1px);
     }
 
     .manager-subtitle {
@@ -700,16 +605,13 @@
       border-radius: 22px;
       border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.04);
-      transition: transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease;
     }
 
     .manager-card:hover {
       transform: translateY(-3px);
       background: rgba(255,255,255,0.08);
       border-color: rgba(192,132,252,0.26);
-      box-shadow:
-        0 12px 30px rgba(0,0,0,0.18),
-        0 0 18px rgba(168,85,247,0.14);
     }
 
     .manager-avatar {
@@ -740,11 +642,6 @@
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
-    }
-
-    @keyframes floatSoft {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
     }
 
     @keyframes modalIn {
@@ -881,22 +778,6 @@
         right: 26%;
       }
 
-      .tiktok-glow.purple {
-        width: 160px;
-        height: 160px;
-        left: 0;
-      }
-
-      .tiktok-glow.mix {
-        width: 160px;
-        height: 160px;
-        right: 0;
-      }
-
-      .float-live {
-        transform: scale(0.85);
-      }
-
       .section {
         padding: 58px 0;
       }
@@ -936,13 +817,13 @@
       .manager-dialog {
         width: calc(100% - 20px);
         margin-top: 3vh;
-        padding: 26px 20px 20px;
+        padding: 20px;
         border-radius: 22px;
       }
 
       .manager-close {
-        top: 16px;
-        right: 16px;
+        top: 14px;
+        right: 14px;
         width: 40px;
         height: 40px;
       }
@@ -1016,11 +897,6 @@
         padding: 8px 14px;
       }
 
-      .live-badge {
-        font-size: 11px;
-        padding: 8px 12px;
-      }
-
       .manager-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -1048,10 +924,7 @@
 
   <header class="hero" id="top">
     <div class="container">
-      <div class="hero-badges reveal">
-        <div class="eyebrow">Agencia para creadores en Latinoamérica</div>
-        <div class="live-badge">LIVE</div>
-      </div>
+      <div class="eyebrow reveal">Agencia para creadores en Latinoamérica</div>
 
       <h1 class="reveal">Únete a una agencia real y crece en TikTok LIVE</h1>
 
@@ -1069,11 +942,6 @@
 
       <div class="showcase reveal">
         <div class="showcase-panel">
-          <div class="tiktok-glow purple"></div>
-          <div class="tiktok-glow mix"></div>
-
-          <div class="tiktok-float float-live">LIVE</div>
-
           <div class="orb one"></div>
           <div class="orb two"></div>
           <div class="orb three"></div>
@@ -1285,9 +1153,7 @@
         <h3 id="managerTitle">Elige a tu manager</h3>
       </div>
 
-      <button class="manager-close" id="managerClose" type="button" aria-label="Cerrar">
-        <span>✕</span>
-      </button>
+      <button class="manager-close" id="managerClose" type="button" aria-label="Cerrar">×</button>
 
       <p class="manager-subtitle">
         Selecciona al manager de tu preferencia y haz clic en su foto para acceder a su enlace de solicitud.
