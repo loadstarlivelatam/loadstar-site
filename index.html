@@ -7,6 +7,32 @@
   <meta name="description" content="Agencia para creadores de TikTok LIVE en Latinoamérica. Soporte real, acompañamiento y crecimiento con estructura.">
   <link rel="icon" type="image/png" href="/favicon.png">
 
+  <script>
+    (function () {
+      try {
+        const navEntry = performance.getEntriesByType('navigation')[0];
+        const isReload =
+          navEntry
+            ? navEntry.type === 'reload'
+            : performance.navigation && performance.navigation.type === 1;
+
+        if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
+        }
+
+        if (isReload && window.location.hash) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+
+        window.addEventListener('load', function () {
+          if (isReload) {
+            window.scrollTo(0, 0);
+          }
+        });
+      } catch (e) {}
+    })();
+  </script>
+
   <style>
     :root {
       --bg: #05030a;
@@ -519,18 +545,23 @@
 
     .manager-header {
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      min-height: 42px;
     }
 
     .manager-header h3 {
       margin: 0;
       font-size: clamp(24px, 3vw, 34px);
       letter-spacing: -0.03em;
+      text-align: center;
+      width: 100%;
     }
 
     .manager-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
       width: 42px;
       height: 42px;
       border: 1px solid rgba(255,255,255,0.12);
@@ -539,6 +570,8 @@
       color: white;
       font-size: 24px;
       line-height: 1;
+      display: grid;
+      place-items: center;
       cursor: pointer;
       transition: .2s ease;
     }
@@ -788,6 +821,13 @@
         border-radius: 22px;
       }
 
+      .manager-close {
+        top: 14px;
+        right: 14px;
+        width: 40px;
+        height: 40px;
+      }
+
       .manager-subtitle {
         margin-bottom: 16px;
         max-width: 100%;
@@ -875,7 +915,7 @@
           </div>
         </div>
         <div class="nav-actions">
-          <a class="btn btn-secondary" href="#faq">Preguntas frecuentes</a>
+          <a class="btn btn-secondary scroll-link" href="#faq">Preguntas frecuentes</a>
           <button class="btn btn-primary manager-trigger" type="button">Elige a tu manager</button>
         </div>
       </div>
@@ -897,7 +937,7 @@
         <a class="btn btn-primary" href="https://www.tiktok.com/@loadstar_latam" target="_blank" rel="noopener noreferrer">
           Ver nuestra cuenta oficial de TikTok
         </a>
-        <a class="btn btn-secondary" href="#beneficios">Más información</a>
+        <a class="btn btn-secondary scroll-link" href="#beneficios">Más información</a>
       </div>
 
       <div class="showcase reveal">
@@ -1095,7 +1135,7 @@
 
         <div class="hero-actions">
           <button class="btn btn-primary manager-trigger" type="button">Elige a tu manager</button>
-          <a class="btn btn-secondary" href="#top">Volver arriba</a>
+          <a class="btn btn-secondary scroll-link" href="#top">Volver arriba</a>
         </div>
       </div>
     </div>
@@ -1111,8 +1151,9 @@
     <div class="manager-dialog" role="dialog" aria-modal="true" aria-labelledby="managerTitle">
       <div class="manager-header">
         <h3 id="managerTitle">Elige a tu manager</h3>
-        <button class="manager-close" id="managerClose" type="button" aria-label="Cerrar">×</button>
       </div>
+
+      <button class="manager-close" id="managerClose" type="button" aria-label="Cerrar">×</button>
 
       <p class="manager-subtitle">
         Selecciona al manager de tu preferencia y haz clic en su foto para acceder a su enlace de solicitud.
@@ -1193,7 +1234,9 @@
 
     const modal = document.getElementById('managerModal');
     const closeBtn = document.getElementById('managerClose');
+    const overlay = document.getElementById('managerOverlay');
     const triggers = document.querySelectorAll('.manager-trigger');
+    const scrollLinks = document.querySelectorAll('.scroll-link');
 
     function openModal() {
       modal.classList.add('active');
@@ -1217,10 +1260,28 @@
       closeModal();
     });
 
+    overlay.addEventListener('click', function() {
+      closeModal();
+    });
+
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && modal.classList.contains('active')) {
         closeModal();
       }
+    });
+
+    scrollLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || !targetId.startsWith('#')) return;
+
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      });
     });
   </script>
 </body>
