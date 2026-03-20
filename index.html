@@ -907,7 +907,7 @@
           <div class="orb three"></div>
 
           <div class="showcase-copy">
-            <h2>Más claridad. Más apoyo. Más crecimiento.</h2>
+            <h2>Más claridad. Más recursos. Más crecimiento.</h2>
             <p>
               Sabemos que muchos creadores dudan antes de hablar con una agencia.
               Por eso trabajamos con transparencia, acompañamiento real y un proceso claro desde el primer contacto.
@@ -1078,7 +1078,7 @@
 
         <div class="faq-item" style="border-bottom:none; padding-bottom:0;">
           <h4>¿En qué países trabajan?</h4>
-          <p>Trabajamos con creadores de varios países de LATAM, incluyendo México, Colombia, Argentina y Perú ,etc.</p>
+          <p>Trabajamos con creadores de varios países de LATAM, incluyendo México, Colombia, Argentina y Perú.</p>
         </div>
       </div>
     </div>
@@ -1102,7 +1102,7 @@
   </section>
 
   <footer class="footer">
-    <div class="container">LoadStar Agencia · TikTok LIVE LATAM · 2024~2026</div>
+    <div class="container">LoadStar Agencia · TikTok LIVE LATAM</div>
   </footer>
 
   <div class="manager-modal" id="managerModal" aria-hidden="true">
@@ -1192,10 +1192,8 @@
     });
 
     const modal = document.getElementById('managerModal');
-    const overlay = document.getElementById('managerOverlay');
     const closeBtn = document.getElementById('managerClose');
     const triggers = document.querySelectorAll('.manager-trigger');
-    const managerCards = document.querySelectorAll('.manager-card');
 
     function openModal() {
       modal.classList.add('active');
@@ -1215,18 +1213,8 @@
       });
     });
 
-    overlay.addEventListener('click', function() {
-      closeModal();
-    });
-
     closeBtn.addEventListener('click', function() {
       closeModal();
-    });
-
-    managerCards.forEach(function(card) {
-      card.addEventListener('click', function() {
-        closeModal();
-      });
     });
 
     document.addEventListener('keydown', function(e) {
