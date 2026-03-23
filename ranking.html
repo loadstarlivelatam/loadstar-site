@@ -771,6 +771,18 @@
         align-items: flex-start;
       }
 
+      .rank-left {
+        width: 100%;
+      }
+
+      .rank-main {
+        width: 100%;
+      }
+
+      .rank-progress {
+        width: 100%;
+      }
+
       .rank-right {
         width: 100%;
         justify-content: flex-start;
@@ -1034,7 +1046,7 @@
     function getProgressWidth(value, maxValue) {
       const current = Number(value) || 0;
       const max = Number(maxValue) || 1;
-      return Math.max(12, Math.round((current / max) * 100));
+      return Math.max(0, Math.min(100, (current / max) * 100));
     }
 
     const startYear = 2026;
