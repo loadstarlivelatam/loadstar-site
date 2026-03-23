@@ -5,39 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LoadStar Agencia | TikTok LIVE LATAM</title>
   <meta name="description" content="Agencia para creadores de TikTok LIVE en Latinoamérica. Soporte real, acompañamiento y crecimiento con estructura.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#05030a">
-
-  <link rel="canonical" href="https://loadstaragencia.com/">
 
   <link rel="icon" href="./favicon.ico">
   <link rel="icon" type="image/png" sizes="52x52" href="./favicon.png">
   <link rel="shortcut icon" href="./favicon.ico">
-
-  <meta property="og:title" content="LoadStar Agencia | TikTok LIVE LATAM">
-  <meta property="og:description" content="Agencia para creadores de TikTok LIVE en Latinoamérica. Soporte real, acompañamiento y crecimiento con estructura.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://loadstaragencia.com/">
-  <meta property="og:image" content="https://loadstaragencia.com/logo.jpg">
-  <meta property="og:site_name" content="LoadStar Agencia">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LoadStar Agencia | TikTok LIVE LATAM">
-  <meta name="twitter:description" content="Agencia para creadores de TikTok LIVE en Latinoamérica. Soporte real, acompañamiento y crecimiento con estructura.">
-  <meta name="twitter:image" content="https://loadstaragencia.com/logo.jpg">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "LoadStar Agencia",
-    "url": "https://loadstaragencia.com/",
-    "logo": "https://loadstaragencia.com/logo.jpg",
-    "sameAs": [
-      "https://www.tiktok.com/@loadstar_latam"
-    ]
-  }
-  </script>
 
   <script>
     (function () {
@@ -279,6 +250,20 @@
       flex-wrap: wrap;
     }
 
+    .hero-proof {
+      margin-top: 16px;
+      color: rgba(255,255,255,0.60);
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-proof a {
+      color: #ead8ff;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .hero-glow {
       position: absolute;
       left: 50%;
@@ -373,6 +358,14 @@
       max-width: 640px;
       color: var(--muted);
       font-size: 18px;
+    }
+
+    .showcase-links {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .section {
@@ -765,8 +758,16 @@
 
       .hero-actions .btn,
       .hero-actions a,
-      .hero-actions button {
+      .hero-actions button,
+      .showcase-links .btn,
+      .showcase-links a {
         width: 100%;
+      }
+
+      .hero-proof {
+        font-size: 13px;
+        line-height: 1.55;
+        padding: 0 8px;
       }
 
       .showcase {
@@ -787,6 +788,11 @@
 
       .showcase-copy p {
         font-size: 15px;
+      }
+
+      .showcase-links {
+        flex-direction: column;
+        align-items: stretch;
       }
 
       .orb.one {
@@ -933,7 +939,52 @@
         grid-template-columns: 1fr 1fr;
       }
     }
-  </style>
+  
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  z-index: 10000;
+  transition: all 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+
+.wa-tooltip {
+  position: absolute;
+  right: 70px;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+
+.whatsapp-float:hover .wa-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+</style>
 </head>
 <body>
   <nav class="nav">
@@ -947,6 +998,7 @@
           </div>
         </div>
         <div class="nav-actions">
+          <a class="btn btn-secondary" href="ranking.html">Ranking mensual</a>
           <a class="btn btn-secondary scroll-link" href="#faq">Preguntas frecuentes</a>
           <button class="btn btn-primary manager-trigger" type="button">Elige a tu manager</button>
         </div>
@@ -969,7 +1021,14 @@
         <a class="btn btn-primary" href="https://www.tiktok.com/@loadstar_latam" target="_blank" rel="noopener noreferrer">
           Ver nuestra cuenta oficial de TikTok
         </a>
-        <a class="btn btn-secondary scroll-link" href="#beneficios">Más información</a>
+        <a class="btn btn-secondary scroll-link" href="#beneficios">
+          Más información
+        </a>
+      </div>
+
+      <div class="hero-proof reveal">
+        Transparencia real para creadores ·
+        <a href="ranking.html">Consulta nuestro ranking mensual</a>
       </div>
 
       <div class="showcase reveal">
@@ -1316,5 +1375,13 @@
       });
     });
   </script>
+
+<a href="https://wa.me/85292504832" 
+   class="whatsapp-float" 
+   target="_blank">
+  💬
+  <div class="wa-tooltip">Contáctanos</div>
+</a>
+
 </body>
 </html>
