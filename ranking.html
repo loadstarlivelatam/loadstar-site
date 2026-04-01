@@ -10,19 +10,24 @@
   <style>
     :root {
       --bg: #05030a;
+      --bg-2: #0b0713;
+      --panel: rgba(255,255,255,0.04);
+      --panel-2: rgba(255,255,255,0.06);
       --line: rgba(255,255,255,0.10);
       --line-strong: rgba(255,255,255,0.16);
       --text: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.68);
+
       --purple: #8b5cf6;
       --purple-2: #a855f7;
+      --purple-3: #c084fc;
+      --pink: #ec4899;
+
       --gold: #f5c451;
       --silver: #cfd6e6;
       --bronze: #d89a68;
-      --shadow: 0 20px 60px rgba(120, 70, 255, 0.18);
-      --radius: 24px;
+
       --max: 1100px;
-      --success: #22c55e;
       --panel-glow: 0 24px 70px rgba(139, 92, 246, 0.22);
     }
 
@@ -317,45 +322,46 @@
       padding: 0 22px 22px;
     }
 
+    .ranking-shell {
+      border-radius: 26px;
+      padding: 18px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(168,85,247,0.16), transparent 34%),
+        linear-gradient(180deg, rgba(18, 12, 30, 0.96), rgba(9, 6, 17, 0.96));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 24px 50px rgba(0,0,0,0.22);
+    }
+
     .ranking-summary {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 14px;
-      margin: 6px 0 18px;
-      padding: 16px 18px;
-      border-radius: 20px;
-      border: 1px solid rgba(168,85,247,0.22);
-      background: linear-gradient(135deg, rgba(168,85,247,0.16), rgba(255,255,255,0.04));
-      box-shadow: 0 18px 36px rgba(88, 28, 135, 0.16);
+      margin: 2px 0 16px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(168,85,247,0.24);
+      background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(255,255,255,0.04));
     }
 
     .summary-label {
-      font-size: 13px;
+      font-size: 12px;
       color: #e6d4ff;
+      letter-spacing: 0.02em;
     }
 
     .summary-name {
       font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-top: 4px;
-    }
-
-    .summary-chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.88);
-      font-size: 12px;
-      font-weight: 600;
-      white-space: nowrap;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-top: 2px;
     }
 
     .summary-score {
-      margin-top: 8px;
-      font-size: 14px;
+      margin-top: 6px;
+      font-size: 13px;
       color: rgba(255,255,255,0.76);
     }
 
@@ -367,222 +373,294 @@
       justify-content: flex-end;
     }
 
-    .summary-chip--accent {
-      background: rgba(245,196,81,0.12);
-      border-color: rgba(245,196,81,0.24);
-      color: #ffe7a5;
-    }
-
-    .podium-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .podium-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 220px;
-      border-radius: 24px;
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      box-shadow: 0 16px 34px rgba(0,0,0,0.20);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform .25s ease, border-color .25s ease, background .25s ease;
-    }
-
-    .podium-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,0.18);
-    }
-
-    .podium-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(255,255,255,0.10), transparent 45%);
-      pointer-events: none;
-    }
-
-    .podium-card.rank-1 {
-      background: linear-gradient(180deg, rgba(245,196,81,0.24), rgba(255,255,255,0.04));
-      border-color: rgba(245,196,81,0.34);
-      box-shadow: 0 22px 48px rgba(245,196,81,0.14), 0 20px 40px rgba(0,0,0,0.24);
-      transform: scale(1.02);
-    }
-
-    .podium-card.rank-2 {
-      background: linear-gradient(180deg, rgba(207,214,230,0.16), rgba(255,255,255,0.04));
-      border-color: rgba(207,214,230,0.22);
-    }
-
-    .podium-card.rank-3 {
-      background: linear-gradient(180deg, rgba(216,154,104,0.16), rgba(255,255,255,0.04));
-      border-color: rgba(216,154,104,0.22);
-    }
-
-    .podium-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .podium-rank {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.74);
-    }
-
-    .podium-medal {
-      min-width: 44px;
-      height: 44px;
+    .summary-chip {
+      min-height: 34px;
       padding: 0 12px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 16px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(10, 7, 18, 0.35);
-      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.88);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
     }
 
-    .podium-avatar-wrap {
-      display: flex;
-      justify-content: center;
+    .summary-chip--accent {
+      background: rgba(245,196,81,0.12);
+      border-color: rgba(245,196,81,0.22);
+      color: #ffe7a5;
+    }
+
+    .top3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .top3-card {
       position: relative;
-      z-index: 1;
-      margin: 10px 0 12px;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+        rgba(255,255,255,0.02);
+      padding: 16px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      text-align: center;
+      isolation: isolate;
+      margin-top: 0;
     }
 
-    .podium-avatar {
-      width: 92px;
-      height: 92px;
+    .top3-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top center, rgba(255,255,255,0.10), transparent 48%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .top3-card.rank-2 {
+      min-height: 228px;
+      margin-top: 14px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(168,85,247,0.18), transparent 38%),
+        linear-gradient(180deg, rgba(207,214,230,0.10), rgba(255,255,255,0.02)),
+        rgba(255,255,255,0.02);
+      border-color: rgba(207,214,230,0.16);
+    }
+
+    .top3-card.rank-1 {
+      min-height: 276px;
+      margin-top: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(245,196,81,0.22), transparent 38%),
+        linear-gradient(180deg, rgba(80, 46, 10, 0.34), rgba(255,255,255,0.03)),
+        rgba(255,255,255,0.03);
+      border-color: rgba(245,196,81,0.24);
+      box-shadow:
+        0 18px 40px rgba(245,196,81,0.10),
+        0 18px 36px rgba(0,0,0,0.26);
+    }
+
+    .top3-card.rank-3 {
+      min-height: 208px;
+      margin-top: 24px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(236,72,153,0.16), transparent 40%),
+        linear-gradient(180deg, rgba(216,154,104,0.10), rgba(255,255,255,0.02)),
+        rgba(255,255,255,0.02);
+      border-color: rgba(216,154,104,0.16);
+    }
+
+    .top3-rank-bg {
+      position: absolute;
+      top: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 156px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: rgba(255,255,255,0.22);
+      text-shadow: 0 6px 24px rgba(0,0,0,0.22);
+      z-index: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .top3-card.rank-1 .top3-rank-bg {
+      color: rgba(245,196,81,0.34);
+      font-size: 172px;
+      top: -2px;
+    }
+
+    .top3-card.rank-2 .top3-rank-bg {
+      color: rgba(220,226,240,0.24);
+      font-size: 148px;
+    }
+
+    .top3-card.rank-3 .top3-rank-bg {
+      color: rgba(255,182,193,0.22);
+      font-size: 138px;
+      top: 8px;
+    }
+
+    .top3-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .top3-avatar {
       border-radius: 999px;
       overflow: hidden;
       border: 3px solid rgba(255,255,255,0.14);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.28);
       background: rgba(255,255,255,0.06);
+      margin-bottom: 14px;
     }
 
-    .podium-avatar img {
+    .top3-card.rank-1 .top3-avatar {
+      width: 98px;
+      height: 98px;
+      box-shadow:
+        0 12px 28px rgba(0,0,0,0.30),
+        0 0 0 6px rgba(245,196,81,0.10);
+    }
+
+    .top3-card.rank-2 .top3-avatar {
+      width: 84px;
+      height: 84px;
+      box-shadow:
+        0 12px 28px rgba(0,0,0,0.30),
+        0 0 0 6px rgba(168,85,247,0.08);
+    }
+
+    .top3-card.rank-3 .top3-avatar {
+      width: 76px;
+      height: 76px;
+      box-shadow:
+        0 12px 28px rgba(0,0,0,0.26),
+        0 0 0 6px rgba(236,72,153,0.07);
+    }
+
+    .top3-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .podium-body {
-      position: relative;
-      z-index: 1;
-      text-align: center;
+    .top3-crown {
+      position: absolute;
+      top: -8px;
+      right: -2px;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      background: linear-gradient(135deg, #ffda75, #f5c451);
+      color: #3c2500;
+      box-shadow: 0 8px 18px rgba(245,196,81,0.28);
+      border: 1px solid rgba(255,255,255,0.40);
     }
 
-    .podium-name {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+    .top3-name {
+      max-width: 100%;
+      font-weight: 800;
+      letter-spacing: -0.03em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .podium-sub {
-      font-size: 13px;
-      color: rgba(255,255,255,0.72);
-      margin-bottom: 12px;
+    .top3-card.rank-1 .top3-name {
+      font-size: 20px;
     }
 
-    .podium-score-main {
-      font-size: 28px;
-      font-weight: 800;
+    .top3-card.rank-2 .top3-name {
+      font-size: 18px;
+    }
+
+    .top3-card.rank-3 .top3-name {
+      font-size: 17px;
+    }
+
+    .top3-score {
+      font-weight: 900;
       letter-spacing: -0.04em;
       margin-bottom: 10px;
     }
 
-    .podium-score-main span {
-      font-size: 14px;
+    .top3-card.rank-1 .top3-score {
+      font-size: 28px;
+    }
+
+    .top3-card.rank-2 .top3-score {
+      font-size: 24px;
+    }
+
+    .top3-card.rank-3 .top3-score {
+      font-size: 22px;
+    }
+
+    .top3-score span {
+      font-size: 13px;
       font-weight: 700;
       opacity: 0.72;
       margin-left: 4px;
       letter-spacing: 0;
     }
 
-    .podium-stats {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .podium-stat {
+    .top3-tag {
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 32px;
-      padding: 0 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.88);
       border: 1px solid rgba(255,255,255,0.10);
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.90);
+      background: rgba(255,255,255,0.07);
     }
 
-    .rest-list {
+    .rank-list {
       display: grid;
       gap: 10px;
     }
 
     .rank-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr) auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 16px;
-      border: 1px solid rgba(255,255,255,0.08);
+      gap: 14px;
+      padding: 12px 14px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: .22s ease;
     }
 
     .rank-row:hover {
       transform: translateY(-2px);
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.14);
+      border-color: rgba(168,85,247,0.20);
+      background:
+        linear-gradient(180deg, rgba(168,85,247,0.08), rgba(255,255,255,0.02)),
+        rgba(255,255,255,0.03);
     }
 
-    .rank-left {
+    .rank-num {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: rgba(255,255,255,0.42);
+      text-align: center;
+    }
+
+    .rank-main {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       min-width: 0;
-      flex: 1;
-    }
-
-    .rank-number {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 14px;
-      flex-shrink: 0;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: white;
     }
 
     .rank-avatar {
@@ -592,8 +670,8 @@
       overflow: hidden;
       border: 2px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.06);
+      box-shadow: 0 8px 18px rgba(139,92,246,0.14);
       flex-shrink: 0;
-      box-shadow: 0 8px 20px rgba(139,92,246,0.16);
     }
 
     .rank-avatar img {
@@ -608,8 +686,8 @@
     }
 
     .rank-name {
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 17px;
+      font-weight: 800;
       letter-spacing: -0.02em;
       white-space: nowrap;
       overflow: hidden;
@@ -617,62 +695,24 @@
     }
 
     .rank-meta {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 3px;
-    }
-
-    .rank-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .rank-main {
-      min-width: 0;
-      flex: 1;
-    }
-
-    .rank-progress {
-      margin-top: 10px;
-      width: 100%;
-      height: 8px;
-      border-radius: 999px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .rank-progress-bar {
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, rgba(168,85,247,0.86), rgba(245,196,81,0.88));
-      box-shadow: 0 8px 16px rgba(168,85,247,0.22);
-    }
-
-    .rank-score,
-    .rank-tag {
-      min-height: 34px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 12px;
-      border-radius: 999px;
+      margin-top: 2px;
       font-size: 12px;
-      font-weight: 700;
+      color: var(--muted);
     }
 
     .rank-score {
-      color: #e5d4ff;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: rgba(168,85,247,0.12);
       border: 1px solid rgba(168,85,247,0.22);
-    }
-
-    .rank-tag {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: rgba(255,255,255,0.88);
+      color: #eadcff;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
     .footer {
@@ -683,16 +723,83 @@
     }
 
     @media (max-width: 900px) {
-      .podium-grid {
-        grid-template-columns: 1fr;
+      .top3-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+        gap: 10px;
+        margin-bottom: 22px;
       }
 
-      .podium-card {
-        min-height: 0;
+      .top3-card.rank-1 {
+        min-height: 248px;
+        margin-top: 0;
+      }
+
+      .top3-card.rank-2 {
+        min-height: 216px;
+        margin-top: 10px;
+      }
+
+      .top3-card.rank-3 {
+        min-height: 198px;
+        margin-top: 18px;
+      }
+
+      .top3-card.rank-1 .top3-avatar {
+        width: 88px;
+        height: 88px;
+      }
+
+      .top3-card.rank-2 .top3-avatar {
+        width: 76px;
+        height: 76px;
+      }
+
+      .top3-card.rank-3 .top3-avatar {
+        width: 70px;
+        height: 70px;
+      }
+
+      .top3-card.rank-1 .top3-name {
+        font-size: 18px;
+      }
+
+      .top3-card.rank-2 .top3-name {
+        font-size: 16px;
+      }
+
+      .top3-card.rank-3 .top3-name {
+        font-size: 15px;
+      }
+
+      .top3-card.rank-1 .top3-score {
+        font-size: 24px;
+      }
+
+      .top3-card.rank-2 .top3-score {
+        font-size: 21px;
+      }
+
+      .top3-card.rank-3 .top3-score {
+        font-size: 19px;
       }
     }
 
     @media (max-width: 720px) {
+      .top3-grid {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .top3-card.rank-1,
+      .top3-card.rank-2,
+      .top3-card.rank-3 {
+        margin-top: 0;
+        min-height: 220px;
+      }
+
       .container {
         width: calc(100% - 24px);
       }
@@ -754,6 +861,11 @@
         padding: 0 16px 16px;
       }
 
+      .ranking-shell {
+        padding: 14px;
+        border-radius: 22px;
+      }
+
       .ranking-summary {
         flex-direction: column;
         align-items: flex-start;
@@ -763,31 +875,79 @@
         justify-content: flex-start;
       }
 
-      .rank-row {
-        flex-direction: column;
-        align-items: flex-start;
+      .top3-rank-bg {
+        font-size: 132px;
+        top: 4px;
       }
 
-      .rank-left {
-        width: 100%;
+      .top3-card.rank-1 .top3-rank-bg {
+        font-size: 146px;
+        top: 0;
+      }
+
+      .top3-card.rank-2 .top3-rank-bg {
+        font-size: 128px;
+      }
+
+      .top3-card.rank-3 .top3-rank-bg {
+        font-size: 120px;
+      }
+
+      .top3-card.rank-1 .top3-avatar {
+        width: 88px;
+        height: 88px;
+      }
+
+      .top3-card.rank-2 .top3-avatar {
+        width: 78px;
+        height: 78px;
+      }
+
+      .top3-card.rank-3 .top3-avatar {
+        width: 72px;
+        height: 72px;
+      }
+
+      .top3-card.rank-1 .top3-name {
+        font-size: 18px;
+      }
+
+      .top3-card.rank-2 .top3-name {
+        font-size: 17px;
+      }
+
+      .top3-card.rank-3 .top3-name {
+        font-size: 16px;
+      }
+
+      .top3-card.rank-1 .top3-score {
+        font-size: 24px;
+      }
+
+      .top3-card.rank-2 .top3-score {
+        font-size: 21px;
+      }
+
+      .top3-card.rank-3 .top3-score {
+        font-size: 20px;
+      }
+
+      .rank-row {
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .rank-score {
+        grid-column: 2 / 3;
+        justify-self: start;
+        margin-top: 8px;
       }
 
       .rank-main {
-        width: 100%;
-      }
-
-      .rank-progress {
-        width: 100%;
-      }
-
-      .rank-right {
-        width: 100%;
-        justify-content: flex-start;
         flex-wrap: wrap;
       }
     }
 
-    /* WhatsApp Floating Button */
     .whatsapp-float {
       position: fixed;
       right: 20px;
@@ -966,7 +1126,7 @@
         { name: '@maria.q.zule', avatar: 'creator_06.jpg', pts: 300095 },
         { name: '@soymariachiqui1', avatar: 'creator_07.jpg', pts: 258059 },
         { name: '@pisoncito', avatar: 'creator_08.jpg', pts: 248223 },
-        { name: '@martinezok22', avatar: 'creator_09.jpg', pts: 242476},
+        { name: '@martinezok22', avatar: 'creator_09.jpg', pts: 242476 },
         { name: '@pedroarce740', avatar: 'creator_10.jpg', pts: 231539 }
       ],
       "2025-08": [
@@ -1038,12 +1198,8 @@
 
     function formatPts(value) {
       const num = Number(value) || 0;
-      if (num >= 1000000) {
-        return (num / 1000000).toFixed(1).replace('.0', '') + 'M';
-      }
-      if (num >= 1000) {
-        return (num / 1000).toFixed(1).replace('.0', '') + 'K';
-      }
+      if (num >= 1000000) return (num / 1000000).toFixed(1).replace('.0', '') + 'M';
+      if (num >= 1000) return (num / 1000).toFixed(1).replace('.0', '') + 'K';
       return String(num);
     }
 
@@ -1051,23 +1207,10 @@
       return (Number(value) || 0).toLocaleString('en-US');
     }
 
-    function getProgressWidth(value, maxValue) {
-      const current = Number(value) || 0;
-      const max = Number(maxValue) || 1;
-      return Math.max(0, Math.min(100, (current / max) * 100));
-    }
-
     const startYear = 2026;
     const startMonth = 3;
     const endYear = 2025;
     const endMonth = 4;
-
-    function getBadge(pos) {
-      if (pos === 1) return '🥇';
-      if (pos === 2) return '🥈';
-      if (pos === 3) return '🥉';
-      return `#${pos}`;
-    }
 
     let year = startYear;
     let month = startMonth;
@@ -1080,33 +1223,27 @@
       const top10Data = [...rawData].sort((a, b) => (Number(b.pts) || 0) - (Number(a.pts) || 0));
 
       const top3 = top10Data.slice(0, 3);
+      const displayTop3 = [top3[1], top3[0], top3[2]].filter(Boolean);
       const rest = top10Data.slice(3);
 
-      const maxPts = top10Data[0]?.pts || 1;
+      const top3Html = displayTop3.map((user, index) => {
+        const visualPos = index === 0 ? 2 : index === 1 ? 1 : 3;
+        const isNo1 = visualPos === 1;
 
-      const podiumHtml = top3.map((user, index) => {
-        const pos = index + 1;
         return `
-          <div class="podium-card rank-${pos}">
-            <div class="podium-top">
-              <div class="podium-rank">Top ${pos}</div>
-              <div class="podium-medal">${pos === 1 ? '👑' : getBadge(pos)}</div>
-            </div>
-
-            <div class="podium-avatar-wrap">
-              <div class="podium-avatar">
-                <img src="${getAvatarPath(key, user.avatar)}" alt="${user.name}">
+          <div class="top3-card rank-${visualPos}">
+            <div class="top3-rank-bg">${visualPos}</div>
+            <div class="top3-inner">
+              <div style="position:relative;">
+                <div class="top3-avatar">
+                  <img src="${getAvatarPath(key, user.avatar)}" alt="${user.name}">
+                </div>
+                ${isNo1 ? '<div class="top3-crown">👑</div>' : ''}
               </div>
-            </div>
 
-            <div class="podium-body">
-              <div class="podium-name">${user.name}</div>
-              <div class="podium-sub">LoadStar Agencia</div>
-              <div class="podium-score-main">${formatPts(user.pts)}<span>pts</span></div>
-              <div class="podium-stats">
-                <div class="podium-stat">Monthly Ranking</div>
-                <div class="podium-stat">${formatExactPts(user.pts)} pts</div>
-              </div>
+              <div class="top3-name">${user.name}</div>
+              <div class="top3-score">${formatPts(user.pts)}<span>pts</span></div>
+              <div class="top3-tag">Top ${visualPos} mensual</div>
             </div>
           </div>
         `;
@@ -1114,28 +1251,21 @@
 
       const restHtml = rest.map((user, index) => {
         const pos = index + 4;
-        const progress = getProgressWidth(user.pts, maxPts);
         return `
           <div class="rank-row">
-            <div class="rank-left">
-              <div class="rank-number">${pos}</div>
+            <div class="rank-num">${pos}</div>
+
+            <div class="rank-main">
               <div class="rank-avatar">
                 <img src="${getAvatarPath(key, user.avatar)}" alt="${user.name}">
               </div>
-              <div class="rank-main">
-                <div class="rank-info">
-                  <div class="rank-name">${user.name}</div>
-                  <div class="rank-meta">LoadStar Agencia</div>
-                </div>
-                <div class="rank-progress">
-                  <div class="rank-progress-bar" style="width: ${progress}%"></div>
-                </div>
+              <div class="rank-info">
+                <div class="rank-name">${user.name}</div>
+                <div class="rank-meta">LoadStar Agencia</div>
               </div>
             </div>
-            <div class="rank-right">
-              <div class="rank-score">🔥 ${formatPts(user.pts)} pts</div>
-              <div class="rank-tag">Top ${pos}</div>
-            </div>
+
+            <div class="rank-score">${formatPts(user.pts)} pts</div>
           </div>
         `;
       }).join('');
@@ -1154,26 +1284,29 @@
             <div class="month-arrow">⌄</div>
           </div>
         </button>
+
         <div class="month-content">
           <div class="month-content-inner">
-            <div class="ranking-summary">
-              <div>
-                <div class="summary-label">🏆 Creator destacado del mes</div>
-                <div class="summary-name">${top10Data[0]?.name || 'Sin datos'}</div>
-                <div class="summary-score">${formatExactPts(top10Data[0]?.pts || 0)} pts acumulados</div>
+            <div class="ranking-shell">
+              <div class="ranking-summary">
+                <div>
+                  <div class="summary-label">🏆 Creator destacado del mes</div>
+                  <div class="summary-name">${top10Data[0]?.name || 'Sin datos'}</div>
+                  <div class="summary-score">${formatExactPts(top10Data[0]?.pts || 0)} pts acumulados</div>
+                </div>
+                <div class="summary-chip-group">
+                  <div class="summary-chip summary-chip--accent">#1 mensual</div>
+                  <div class="summary-chip">Top 10 mensual</div>
+                </div>
               </div>
-              <div class="summary-chip-group">
-                <div class="summary-chip summary-chip--accent">#1 mensual</div>
-                <div class="summary-chip">Top 10 mensual</div>
+
+              <div class="top3-grid">
+                ${top3Html}
               </div>
-            </div>
 
-            <div class="podium-grid">
-              ${podiumHtml}
-            </div>
-
-            <div class="rest-list">
-              ${restHtml}
+              <div class="rank-list">
+                ${restHtml}
+              </div>
             </div>
           </div>
         </div>
@@ -1190,7 +1323,7 @@
 
     const items = document.querySelectorAll('.month-item');
 
-    items.forEach((item) => {
+    items.forEach((item, idx) => {
       const trigger = item.querySelector('.month-trigger');
 
       trigger.addEventListener('click', () => {
@@ -1204,6 +1337,10 @@
           item.classList.add('active');
         }
       });
+
+      if (idx === 0) {
+        item.classList.add('active');
+      }
     });
   </script>
 
