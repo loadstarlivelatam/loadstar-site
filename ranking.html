@@ -786,6 +786,135 @@
     }
 
     @media (max-width: 720px) {
+      .nav {
+        position: static;
+        top: auto;
+        padding-top: 0;
+      }
+
+      .container {
+        width: calc(100% - 20px);
+      }
+
+      .nav-inner {
+        border-radius: 18px;
+        padding: 10px 12px;
+        min-height: auto;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 10px;
+      }
+
+      .brand {
+        min-width: 0;
+        flex: 1;
+        width: auto;
+      }
+
+      .logo {
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+      }
+
+      .brand-text {
+        min-width: 0;
+      }
+
+      .brand-text strong {
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+      }
+
+      .brand-text span {
+        font-size: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+      }
+
+      .btn {
+        width: auto;
+        flex-shrink: 0;
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 22px 0 18px;
+      }
+
+      .ranking-head {
+        padding: 18px 14px 14px;
+      }
+
+      .month-trigger {
+        padding: 14px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .month-left,
+      .month-right {
+        width: 100%;
+      }
+
+      .month-right {
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .month-badge {
+        min-height: 32px;
+        padding: 0 12px;
+        font-size: 12px;
+      }
+
+      .month-title {
+        font-size: 16px;
+      }
+
+      .month-sub {
+        font-size: 13px;
+      }
+
+      .month-content-inner {
+        padding: 0 14px 0;
+      }
+
+      .month-item.active .month-content-inner {
+        padding: 0 14px 14px;
+      }
+
+      .ranking-panel {
+        overflow: visible;
+      }
+
+      .ranking-shell {
+        padding: 12px;
+        border-radius: 20px;
+      }
+
+      .ranking-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 13px;
+        gap: 10px;
+      }
+
+      .summary-name {
+        font-size: 17px;
+      }
+
+      .summary-chip-group {
+        justify-content: flex-start;
+      }
+
       .top3-grid {
         grid-template-columns: 1fr;
         align-items: stretch;
@@ -797,161 +926,91 @@
       .top3-card.rank-2,
       .top3-card.rank-3 {
         margin-top: 0;
-        min-height: 220px;
-      }
-
-      .container {
-        width: calc(100% - 24px);
-      }
-
-      .nav {
-        top: 10px;
-        padding-top: 10px;
-      }
-
-      .nav-inner {
-        border-radius: 24px;
-        padding: 14px;
-      }
-
-      .logo {
-        width: 32px;
-        height: 32px;
-        border-radius: 10px;
-      }
-
-      .brand-text strong {
-        font-size: 15px;
-      }
-
-      .brand-text span {
-        font-size: 11px;
-      }
-
-      .hero {
-        padding: 42px 0 24px;
-      }
-
-      .ranking-head {
-        padding: 18px 16px 14px;
-      }
-
-      .month-trigger {
-        padding: 16px;
-        align-items: flex-start;
-      }
-
-      .month-right {
-        gap: 8px;
-      }
-
-      .month-badge {
-        min-height: 34px;
-      }
-
-      .month-title {
-        font-size: 17px;
-      }
-
-      .month-content-inner {
-        padding: 0 16px 0;
-      }
-
-      .month-item.active .month-content-inner {
-        padding: 0 16px 16px;
-      }
-
-      .ranking-shell {
-        padding: 14px;
-        border-radius: 22px;
-      }
-
-      .ranking-summary {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .summary-chip-group {
-        justify-content: flex-start;
+        min-height: 212px;
       }
 
       .top3-rank-bg {
-        font-size: 132px;
-        top: 4px;
+        font-size: 118px;
+        top: 6px;
       }
 
       .top3-card.rank-1 .top3-rank-bg {
-        font-size: 146px;
-        top: 0;
+        font-size: 130px;
+        top: 2px;
       }
 
       .top3-card.rank-2 .top3-rank-bg {
-        font-size: 128px;
+        font-size: 116px;
       }
 
       .top3-card.rank-3 .top3-rank-bg {
-        font-size: 120px;
+        font-size: 108px;
       }
 
-      .top3-card.rank-1 .top3-avatar {
-        width: 88px;
-        height: 88px;
-      }
-
-      .top3-card.rank-2 .top3-avatar {
-        width: 78px;
-        height: 78px;
-      }
-
+      .top3-card.rank-1 .top3-avatar,
+      .top3-card.rank-2 .top3-avatar,
       .top3-card.rank-3 .top3-avatar {
-        width: 72px;
-        height: 72px;
+        width: 76px;
+        height: 76px;
       }
 
-      .top3-card.rank-1 .top3-name {
-        font-size: 18px;
-      }
-
-      .top3-card.rank-2 .top3-name {
+      .top3-card.rank-1 .top3-name,
+      .top3-card.rank-2 .top3-name,
+      .top3-card.rank-3 .top3-name {
         font-size: 17px;
       }
 
-      .top3-card.rank-3 .top3-name {
-        font-size: 16px;
-      }
-
-      .top3-card.rank-1 .top3-score {
-        font-size: 24px;
-      }
-
-      .top3-card.rank-2 .top3-score {
+      .top3-card.rank-1 .top3-score,
+      .top3-card.rank-2 .top3-score,
+      .top3-card.rank-3 .top3-score {
         font-size: 21px;
       }
 
-      .top3-card.rank-3 .top3-score {
-        font-size: 20px;
+      .rank-list {
+        gap: 8px;
       }
 
       .rank-row {
-        grid-template-columns: 44px minmax(0, 1fr);
-        gap: 12px;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 10px;
+        padding: 12px;
+      }
+
+      .rank-num {
+        font-size: 24px;
+      }
+
+      .rank-avatar {
+        width: 38px;
+        height: 38px;
+      }
+
+      .rank-name {
+        font-size: 15px;
       }
 
       .rank-score {
         grid-column: 2 / 3;
         justify-self: start;
-        margin-top: 8px;
+        margin-top: 6px;
+        min-height: 32px;
+        padding: 0 12px;
+        font-size: 12px;
       }
 
       .rank-main {
         flex-wrap: wrap;
       }
-    }
 
-    .whatsapp-float {
+      .footer {
+        padding: 14px 0 86px;
+        font-size: 13px;
+      }
+
+      .whatsapp-float {
       position: fixed;
       right: 20px;
-      bottom: 24px;
+      bottom: calc(24px + env(safe-area-inset-bottom));
       width: 58px;
       height: 58px;
       border-radius: 999px;
@@ -984,11 +1043,83 @@
       transform: translateX(10px);
       transition: all .2s ease;
       white-space: nowrap;
+      pointer-events: none;
     }
 
     .whatsapp-float:hover .wa-tooltip {
       opacity: 1;
       transform: translateX(0);
+    }
+  
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 420px) {
+      .nav-inner {
+        gap: 8px;
+      }
+
+      .btn {
+        padding: 0 12px;
+        font-size: 12px;
+      }
+
+      .container {
+        width: calc(100% - 16px);
+      }
+
+      .hero h1 {
+        font-size: clamp(30px, 10vw, 42px);
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .eyebrow {
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+
+      .ranking-head h2 {
+        font-size: 20px;
+      }
+
+      .summary-name {
+        font-size: 16px;
+      }
+
+      .top3-card.rank-1,
+      .top3-card.rank-2,
+      .top3-card.rank-3 {
+        min-height: 198px;
+        padding: 14px;
+      }
+
+      .top3-card.rank-1 .top3-avatar,
+      .top3-card.rank-2 .top3-avatar,
+      .top3-card.rank-3 .top3-avatar {
+        width: 70px;
+        height: 70px;
+      }
+
+      .top3-card.rank-1 .top3-name,
+      .top3-card.rank-2 .top3-name,
+      .top3-card.rank-3 .top3-name {
+        font-size: 16px;
+      }
+
+      .top3-card.rank-1 .top3-score,
+      .top3-card.rank-2 .top3-score,
+      .top3-card.rank-3 .top3-score {
+        font-size: 20px;
+      }
+
+      .rank-row {
+        padding: 10px;
+      }
     }
   </style>
 </head>
