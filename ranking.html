@@ -353,7 +353,6 @@
       white-space: nowrap;
     }
 
-
     .summary-score {
       margin-top: 8px;
       font-size: 14px;
@@ -505,7 +504,6 @@
       margin-bottom: 12px;
     }
 
-
     .podium-score-main {
       font-size: 28px;
       font-weight: 800;
@@ -630,7 +628,6 @@
       gap: 10px;
       flex-shrink: 0;
     }
-
 
     .rank-main {
       min-width: 0;
@@ -790,7 +787,6 @@
       }
     }
 
-
     /* WhatsApp Floating Button */
     .whatsapp-float {
       position: fixed;
@@ -834,7 +830,6 @@
       opacity: 1;
       transform: translateX(0);
     }
-
   </style>
 </head>
 <body>
@@ -867,7 +862,7 @@
     <div class="container">
       <div class="ranking-panel">
         <div class="ranking-head">
-          <h2>De febrero de 2026 a abril de 2025</h2>
+          <h2>De marzo de 2026 a abril de 2025</h2>
           <p>El ranking mensual de la agencia comenzó en abril de 2025. Haz clic en un mes para desplegar su Top 10.</p>
         </div>
 
@@ -889,6 +884,19 @@
     ];
 
     const monthlyRankings = {
+      "2026-03": [
+        { name: '@fiorellahernandez04', avatar: 'creator_01.jpg', pts: 4139735 },
+        { name: '@ivethposadas1999', avatar: 'creator_02.jpg', pts: 3693330 },
+        { name: '@giselleaviless', avatar: 'creator_03.jpg', pts: 2137361 },
+        { name: '@cgracee_l20', avatar: 'creator_04.jpg', pts: 1843536 },
+        { name: '@facuquirog4', avatar: 'creator_05.jpg', pts: 1727629 },
+        { name: '@alibys_', avatar: 'creator_06.jpg', pts: 1508390 },
+        { name: '@mashiiiii_temu', avatar: 'creator_07.jpg', pts: 1311536 },
+        { name: '@iris_lopez02', avatar: 'creator_08.jpg', pts: 954350 },
+        { name: '@provokkam3t3t3', avatar: 'creator_09.jpg', pts: 892121 },
+        { name: '@iam.pollofrito', avatar: 'creator_10.jpg', pts: 850905 }
+      ],
+
       "2026-02": [
         { name: '@ivethposadas1999', avatar: 'creator_01.jpg', pts: 1694695 },
         { name: '@facuquirog4', avatar: 'creator_02.jpg', pts: 1028015 },
@@ -1050,7 +1058,7 @@
     }
 
     const startYear = 2026;
-    const startMonth = 2;
+    const startMonth = 3;
     const endYear = 2025;
     const endMonth = 4;
 
@@ -1061,12 +1069,11 @@
       return `#${pos}`;
     }
 
-
     let year = startYear;
     let month = startMonth;
 
     while (year > endYear || (year === endYear && month >= endMonth)) {
-      const isLatest = year === 2026 && month === 2;
+      const isLatest = year === 2026 && month === 3;
       const key = `${year}-${String(month).padStart(2, '0')}`;
 
       const rawData = monthlyRankings[key] || [];
@@ -1200,11 +1207,9 @@
     });
   </script>
 
-
   <a href="https://wa.me/85292504832" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
     💬
     <div class="wa-tooltip">Contáctanos</div>
   </a>
-
 </body>
 </html>
