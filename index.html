@@ -568,7 +568,7 @@
           </div>
         </div>
         <div class="nav-actions">
-          <a class="btn btn-secondary" href="https://www.loadstaragencia.com/ranking.html" data-ranking-link="1">Ranking mensual</a>
+          <a class="btn btn-secondary" href="https://www.loadstaragencia.com/ranking.html">Ranking mensual</a>
           <a class="btn btn-secondary scroll-link" href="#faq">Preguntas frecuentes</a>
           <button class="btn btn-primary manager-trigger" type="button">Elige a tu manager</button>
         </div>
@@ -598,7 +598,7 @@
 
       <div class="hero-proof reveal">
         Transparencia real para creadores ·
-        <a href="https://www.loadstaragencia.com/ranking.html" data-ranking-link="1">Consulta nuestro ranking mensual</a>
+        <a href="https://www.loadstaragencia.com/ranking.html">Consulta nuestro ranking mensual</a>
       </div>
 
       <div class="showcase reveal">
@@ -1067,22 +1067,6 @@
         history.replaceState(null, '', window.location.pathname + window.location.search);
       });
     });
-
-    /* ── Ranking link ── */
-    (function () {
-      var RANKING_URL = 'https://www.loadstaragencia.com/ranking.html';
-      function goRanking(e) {
-        if (e) e.preventDefault();
-        try { window.location.assign(RANKING_URL); } catch (err) { window.location.href = RANKING_URL; }
-        return false;
-      }
-      document.addEventListener('click', function (e) {
-        var link = e.target.closest('a[data-ranking-link="1"]');
-        if (!link) return;
-        goRanking(e);
-      }, true);
-      window.goRanking = goRanking;
-    })();
   </script>
 </body>
 </html>
