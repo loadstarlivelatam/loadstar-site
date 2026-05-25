@@ -488,68 +488,228 @@ nav{
 }
 
 /* ── MOBILE + narrow tablet (≤767px): carousel nav ── */
+/* ── MOBILE + narrow tablet (≤767px) ── */
 @media(max-width:767px){
-  :root{--pad:16px}
-  .nav-links{display:none}
-  .nav-car{display:flex}
-  .nav-cta span{display:none}
-  .nav-cta{padding:8px 10px}
-  .nav-w{height:50px}
-  .logo-b{font-size:13px}
-  .logo-s{font-size:10px}
 
-  /* hero */
-  .hero{padding:52px var(--pad) 40px}
-  .hero h1{font-size:38px;letter-spacing:-.02em}
-  .hero p{font-size:15px}
-  .btns{flex-direction:column;align-items:center;gap:10px}
-  .btn-fill,.btn-ghost{width:100%;max-width:320px;justify-content:center}
+  :root{
+    --pad:16px;
+  }
 
-  /* banner */
-  .bnr h2{font-size:28px}
-  .bnr-bolt svg{width:40px}
-  .o1{width:60px;height:60px;top:16px;left:3%}
-  .o2{width:80px;height:80px;top:10px;right:3%}
-  .o3{display:none}
+  nav{
+    padding:10px 8px;
+  }
 
-  /* stats */
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .stat{padding:22px 16px;gap:12px}
-  .stat:nth-child(2){border-right:none}
-  .stat:nth-child(3){border-top:1px solid var(--border)}
-  .stat b{font-size:16px}
-  .stat small{font-size:11px}
+  .nav-w{
+    width:100%;
+    max-width:100%;
+    height:58px;
+    padding:0 10px;
+    gap:8px;
+    border-radius:16px;
+    overflow:hidden;
+  }
 
-  /* sections */
-  .sec-wrap{padding:52px var(--pad)}
-  .sec-h2{font-size:28px}
-  .sec-sub{font-size:14px;margin-bottom:36px}
+  /* LOGO */
+  .logo{
+    flex:0 0 auto;
+    min-width:0;
+    gap:8px;
+  }
 
-  /* grids */
-  .cards{grid-template-columns:1fr}
-  .mgr-grid{grid-template-columns:1fr}
-  .ben-grid{grid-template-columns:1fr}
-  .req-layout{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .f-row{grid-template-columns:1fr}
+  .logo-box{
+    width:38px;
+    height:38px;
+  }
 
-  /* manager cards */
-  .mgr-card{padding:22px 18px 18px}
-  .mgr-av-wrap{width:86px;height:86px}
+  .logo-b{
+    font-size:13px;
+    max-width:120px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
 
-  /* ranking */
-  .rk-pod-av{width:56px;height:56px;font-size:16px}
-  .rk-pod-name{font-size:11px}
-  .rk-pod-score{font-size:12px}
-  .rk-nav-label{font-size:15px;min-width:150px}
+  .logo-s{
+    font-size:10px;
+    white-space:nowrap;
+  }
 
-  /* floats: icon only */
-  .fl-txt{display:none}
-  .fl{padding:10px;border-radius:12px}
-  .fl-ic{width:46px;height:46px;border-radius:12px}
-  .floats{right:12px;bottom:16px;gap:8px}
+  /* DESKTOP NAV HIDDEN */
+  .nav-links{
+    display:none;
+  }
+
+  /* MOBILE CAROUSEL */
+  .nav-car{
+    display:flex;
+    flex:1;
+    min-width:0;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+  }
+
+  .nav-arr{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    flex:0 0 34px;
+    font-size:16px;
+  }
+
+  .nav-slt{
+    width:90px;
+    min-width:0;
+    padding:0 4px;
+    overflow:hidden;
+  }
+
+  .slt-item button{
+    font-size:14px;
+    white-space:nowrap;
+  }
+
+  /* HIDE WHATSAPP BUTTON ON MOBILE */
+  .nav-cta{
+    display:none;
+  }
+
+  /* HERO */
+  .hero{
+    padding:52px var(--pad) 40px;
+  }
+
+  .hero h1{
+    font-size:38px;
+    letter-spacing:-.02em;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .btns{
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+
+  .btn-fill,
+  .btn-ghost{
+    width:100%;
+    max-width:320px;
+    justify-content:center;
+  }
+
+  /* BANNER */
+  .bnr h2{
+    font-size:28px;
+  }
+
+  .bnr-bolt svg{
+    width:40px;
+  }
+
+  .o1{
+    width:60px;
+    height:60px;
+    top:16px;
+    left:3%;
+  }
+
+  .o2{
+    width:80px;
+    height:80px;
+    top:10px;
+    right:3%;
+  }
+
+  .o3{
+    display:none;
+  }
+
+  /* STATS */
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stat{
+    padding:22px 16px;
+    gap:12px;
+  }
+
+  .stat:nth-child(2){
+    border-right:none;
+  }
+
+  .stat:nth-child(3){
+    border-top:1px solid var(--border);
+  }
+
+  .stat b{
+    font-size:16px;
+  }
+
+  .stat small{
+    font-size:11px;
+  }
+
+  /* SECTIONS */
+  .sec-wrap{
+    padding:52px var(--pad);
+  }
+
+  .sec-h2{
+    font-size:28px;
+  }
+
+  .sec-sub{
+    font-size:14px;
+    margin-bottom:36px;
+  }
+
+  /* GRIDS */
+  .cards,
+  .mgr-grid,
+  .ben-grid,
+  .req-layout,
+  .contact-grid,
+  .f-row{
+    grid-template-columns:1fr;
+  }
+
+  /* MANAGER */
+  .mgr-card{
+    padding:22px 18px 18px;
+  }
+
+  .mgr-av-wrap{
+    width:86px;
+    height:86px;
+  }
+
+  /* FLOAT BUTTONS */
+  .fl-txt{
+    display:none;
+  }
+
+  .fl{
+    padding:10px;
+    border-radius:12px;
+  }
+
+  .fl-ic{
+    width:46px;
+    height:46px;
+    border-radius:12px;
+  }
+
+  .floats{
+    right:12px;
+    bottom:16px;
+    gap:8px;
+  }
 }
-
 /* ── SMALL MOBILE (≤380px) ── */
 @media(max-width:380px){
   .hero h1{font-size:32px}
