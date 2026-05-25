@@ -1641,4 +1641,117 @@ function toggleFaq(el) {
 }
 </script>
 </body>
+  <script>
+const EJS_PUBLIC_KEY  = 'txG7Uyd4CjPGOhqaDR-iS';
+const EJS_SERVICE_ID  = 'service_loadstar';
+const EJS_TEMPLATE_ID = 'template_ad6ggks';
+
+if (typeof emailjs !== 'undefined') {
+  emailjs.init(EJS_PUBLIC_KEY);
+}
+
+/* 导航切换 */
+function showSection(id, btn){
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.classList.remove('on');
+  });
+
+  const target = document.getElementById('sec-' + id);
+  if(target){
+    target.classList.add('on');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  document.querySelectorAll('.nav-links button').forEach(b => {
+    b.classList.remove('on');
+  });
+
+  const activeBtn = btn || document.querySelector(`.nav-links button[onclick*="${id}"]`);
+  if(activeBtn){
+    activeBtn.classList.add('on');
+  }
+
+  navIdx = navItems.findIndex(item => item.id === id);
+  if(navIdx < 0) navIdx = 0;
+  renderMobileNav();
+}
+
+/* 手机导航左右箭头 */
+const navItems = [
+  {id:'inicio', label:'Inicio'},
+  {id:'managers', label:'Managers'},
+  {id:'beneficios', label:'Beneficios'},
+  {id:'ranking', label:'Ranking'},
+  {id:'faq', label:'FAQ'},
+  {id:'contacto', label:'Contacto'}
+];
+
+let navIdx = 0;
+
+function renderMobileNav(){
+  const navSlt = document.getElementById('navSlt');
+  if(!navSlt) return;
+
+  const item = navItems[navIdx];
+
+  navSlt.innerHTML = `
+    <div class="slt-item ac">
+      <button onclick="showSection('${item.id}')">${item.label}</button>
+    </div>
+  `;
+}
+
+document.getElementById('navP')?.addEventListener('click', function(){
+  navIdx = (navIdx - 1 + navItems.length) % navItems.length;
+  showSection(navItems[navIdx].id);
+});
+
+document.getElementById('navN')?.addEventListener('click', function(){
+  navIdx = (navIdx + 1) % navItems.length;
+  showSection(navItems[navIdx].id);
+});
+
+renderMobileNav();
+
+/* 表单发送 */
+function enviarFormulario() {
+  const nombre    = document.getElementById('f-nombre').value.trim();
+  const pais      = document.getElementById('f-pais').value;
+  const tiktok    = document.getElementById('f-tiktok').value.trim();
+  const contacto  = document.getElementById('f-contacto').value.trim();
+  const mensaje   = document.getElementById('f-mensaje').value.trim();
+
+  if (!nombre || !tiktok || !contacto) {
+    alert('Por favor completa al menos: Nombre, Usuario de TikTok y WhatsApp/Email.');
+    return;
+  }
+
+  const btn = document.getElementById('btnSubmit');
+  btn.innerHTML = '⏳ Enviando...';
+  btn.disabled = true;
+
+  emailjs.send(EJS_SERVICE_ID, EJS_TEMPLATE_ID, {
+    from_name : nombre,
+    pais      : pais,
+    tiktok    : tiktok,
+    contacto  : contacto,
+    mensaje   : mensaje,
+    to_email  : 'loadstarlivelatam@gmail.com'
+  })
+  .then(() => {
+    btn.innerHTML = '✓ ¡Solicitud enviada!';
+    btn.style.background = '#059669';
+    ['f-nombre','f-tiktok','f-contacto','f-mensaje'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('f-pais').selectedIndex = 0;
+  })
+  .catch(err => {
+    console.error('EmailJS error:', err);
+    btn.innerHTML = '🚀 Enviar solicitud';
+    btn.disabled = false;
+    alert('Error al enviar. Por favor escríbenos directamente a loadstarlivelatam@gmail.com');
+  });
+}
+</script>
 </html>
