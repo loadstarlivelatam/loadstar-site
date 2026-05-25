@@ -1339,10 +1339,10 @@ function enviarFormulario() {
     document.getElementById('f-pais').selectedIndex = 0;
   })
   .catch(err => {
-    console.error('EmailJS error:', err);
-    btn.innerHTML = '🚀 Enviar solicitud';
-    btn.disabled = false;
-    alert('Error al enviar. Por favor escríbenos directamente a loadstarlivelatam@gmail.com');
+   console.error('EmailJS error:', err);
+  btn.innerHTML = '🚀 Enviar solicitud';
+  btn.disabled = false;
+  alert('EmailJS error: ' + (err.text || err.message || JSON.stringify(err)));
   });
 }
 
