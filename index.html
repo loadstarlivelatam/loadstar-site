@@ -710,6 +710,7 @@ nav{
     gap:8px;
   }
 }
+
 /* ── SMALL MOBILE (≤380px) ── */
 @media(max-width:380px){
   .hero h1{font-size:32px}
@@ -1197,7 +1198,7 @@ nav{
         </div>
         <div class="contact-card">
           <div class="contact-card-ico">📹</div>
-          <div><h3>TikTok oficial</h3><p>Síguenos para ver los logros de nuestros creadores<br><a href="https://www.tiktok.com/@loadstar_latam" target="_blank">@loadstar_latam</a></p></div>
+          <div><h3>TikTok oficial</h3><p>Síguenos para ver los logros de nuestros creadores<br><a href="https://www.tiktok.com/t/ZSjyLCJv8/" target="_blank">@loadstar_latam</a></p></div>
         </div>
         <div class="contact-card">
           <div class="contact-card-ico">🕐</div>
@@ -1272,7 +1273,7 @@ nav{
       <p>© LoadStar Agencia. All rights reserved. Unauthorized use or reproduction is strictly prohibited.</p>
     </div>
     <div class="footer-links">
-      <a href="https://www.tiktok.com/@loadstar_latam" target="_blank">TikTok</a>
+      <a href="https://www.tiktok.com/t/ZSjyLCJv8/" target="_blank">TikTok</a>
       <a href="https://wa.me/85292504832" target="_blank">WhatsApp</a>
       <a href="mailto:loadstarlivelatam@gmail.com">Email</a>
     </div>
@@ -1282,7 +1283,7 @@ nav{
 
 <!-- ═══ FLOATING BUTTONS – outside .page so no transform clipping ═══ -->
 <div class="floats">
-  <a class="fl fl-tik" href="https://www.tiktok.com/t/@loadstar_latam" target="_blank">
+  <a class="fl fl-tik" href="https://www.tiktok.com/t/ZSjyLCJv8/" target="_blank">
     <div class="fl-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></div>
     <div class="fl-txt">Cuenta oficial<small>TikTok ›</small></div>
   </a>
@@ -1296,59 +1297,53 @@ nav{
 /* ── FORM SUBMIT → EMAILJS (directo, sin abrir cliente de correo) ── */
 
 // ⚠️  REEMPLAZA ESTOS 3 VALORES con los tuyos de emailjs.com
-const EJS_PUBLIC_KEY  = 'txG7Uyd4CjPGOhqaDR-iS';
-const EJS_SERVICE_ID  = 'service_loadstar';
-const EJS_TEMPLATE_ID = 'template_ad6ggks';
+const EJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';   // Account → Public Key
+const EJS_SERVICE_ID  = 'TU_SERVICE_ID';   // Email Services → Service ID
+const EJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';  // Email Templates → Template ID
 
-emailjs.init(EJS_PUBLIC_KEY);
+// Inicializa EmailJS con tu clave pública
+(function() {
+  if (typeof emailjs !== 'undefined') emailjs.init(EJS_PUBLIC_KEY);
+})();
 
-document.getElementById("contactForm").addEventListener("submit", async function(e){
+function enviarFormulario() {
+  const nombre    = document.getElementById('f-nombre').value.trim();
+  const pais      = document.getElementById('f-pais').value;
+  const tiktok    = document.getElementById('f-tiktok').value.trim();
+  const contacto  = document.getElementById('f-contacto').value.trim();
+  const mensaje   = document.getElementById('f-mensaje').value.trim();
 
-  e.preventDefault();
-
-  const btn = document.querySelector(".btn-submit");
-
-  btn.innerHTML = "Enviando...";
-  btn.disabled = true;
-
-  const params = {
-
-    from_name : document.getElementById("nombre").value,
-
-    pais : document.getElementById("pais").value,
-
-    tiktok : document.getElementById("tiktok").value,
-
-    contacto : document.getElementById("contactoInput").value,
-
-    mensaje : document.getElementById("mensaje").value
-
-  };
-
-  try{
-
-    await emailjs.send(
-      EJS_SERVICE_ID,
-      EJS_TEMPLATE_ID,
-      params
-    );
-
-    alert("Mensaje enviado correctamente");
-
-    document.getElementById("contactForm").reset();
-
-  }catch(err){
-
-    console.error(err);
-
-    alert("Error al enviar el mensaje");
-
+  if (!nombre || !tiktok || !contacto) {
+    alert('Por favor completa al menos: Nombre, Usuario de TikTok y WhatsApp/Email.');
+    return;
   }
 
-  btn.innerHTML = "Enviar solicitud";
-  btn.disabled = false;
+  const btn = document.getElementById('btnSubmit');
+  btn.innerHTML = '⏳ Enviando...';
+  btn.disabled = true;
 
-});
+  emailjs.send(EJS_SERVICE_ID, EJS_TEMPLATE_ID, {
+    from_name : nombre,
+    pais      : pais,
+    tiktok    : tiktok,
+    contacto  : contacto,
+    mensaje   : mensaje,
+    to_email  : 'loadstarlivelatam@gmail.com'
+  })
+  .then(() => {
+    btn.innerHTML = '✓ ¡Solicitud enviada!';
+    btn.style.background = '#059669';
+    ['f-nombre','f-tiktok','f-contacto','f-mensaje'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('f-pais').selectedIndex = 0;
+  })
+  .catch(err => {
+    console.error('EmailJS error:', err);
+    btn.innerHTML = '🚀 Enviar solicitud';
+    btn.disabled = false;
+    alert('Error al enviar. Por favor escríbenos directamente a loadstarlivelatam@gmail.com');
+  });
 }
 
 /* ── RANKING MONTH CAROUSEL ── */
@@ -1641,117 +1636,4 @@ function toggleFaq(el) {
 }
 </script>
 </body>
-  <script>
-const EJS_PUBLIC_KEY  = 'txG7Uyd4CjPGOhqaDR-iS';
-const EJS_SERVICE_ID  = 'service_loadstar';
-const EJS_TEMPLATE_ID = 'template_ad6ggks';
-
-if (typeof emailjs !== 'undefined') {
-  emailjs.init(EJS_PUBLIC_KEY);
-}
-
-/* 导航切换 */
-function showSection(id, btn){
-  document.querySelectorAll('.section').forEach(sec => {
-    sec.classList.remove('on');
-  });
-
-  const target = document.getElementById('sec-' + id);
-  if(target){
-    target.classList.add('on');
-    window.scrollTo({top:0, behavior:'smooth'});
-  }
-
-  document.querySelectorAll('.nav-links button').forEach(b => {
-    b.classList.remove('on');
-  });
-
-  const activeBtn = btn || document.querySelector(`.nav-links button[onclick*="${id}"]`);
-  if(activeBtn){
-    activeBtn.classList.add('on');
-  }
-
-  navIdx = navItems.findIndex(item => item.id === id);
-  if(navIdx < 0) navIdx = 0;
-  renderMobileNav();
-}
-
-/* 手机导航左右箭头 */
-const navItems = [
-  {id:'inicio', label:'Inicio'},
-  {id:'managers', label:'Managers'},
-  {id:'beneficios', label:'Beneficios'},
-  {id:'ranking', label:'Ranking'},
-  {id:'faq', label:'FAQ'},
-  {id:'contacto', label:'Contacto'}
-];
-
-let navIdx = 0;
-
-function renderMobileNav(){
-  const navSlt = document.getElementById('navSlt');
-  if(!navSlt) return;
-
-  const item = navItems[navIdx];
-
-  navSlt.innerHTML = `
-    <div class="slt-item ac">
-      <button onclick="showSection('${item.id}')">${item.label}</button>
-    </div>
-  `;
-}
-
-document.getElementById('navP')?.addEventListener('click', function(){
-  navIdx = (navIdx - 1 + navItems.length) % navItems.length;
-  showSection(navItems[navIdx].id);
-});
-
-document.getElementById('navN')?.addEventListener('click', function(){
-  navIdx = (navIdx + 1) % navItems.length;
-  showSection(navItems[navIdx].id);
-});
-
-renderMobileNav();
-
-/* 表单发送 */
-function enviarFormulario() {
-  const nombre    = document.getElementById('f-nombre').value.trim();
-  const pais      = document.getElementById('f-pais').value;
-  const tiktok    = document.getElementById('f-tiktok').value.trim();
-  const contacto  = document.getElementById('f-contacto').value.trim();
-  const mensaje   = document.getElementById('f-mensaje').value.trim();
-
-  if (!nombre || !tiktok || !contacto) {
-    alert('Por favor completa al menos: Nombre, Usuario de TikTok y WhatsApp/Email.');
-    return;
-  }
-
-  const btn = document.getElementById('btnSubmit');
-  btn.innerHTML = '⏳ Enviando...';
-  btn.disabled = true;
-
-  emailjs.send(EJS_SERVICE_ID, EJS_TEMPLATE_ID, {
-    from_name : nombre,
-    pais      : pais,
-    tiktok    : tiktok,
-    contacto  : contacto,
-    mensaje   : mensaje,
-    to_email  : 'loadstarlivelatam@gmail.com'
-  })
-  .then(() => {
-    btn.innerHTML = '✓ ¡Solicitud enviada!';
-    btn.style.background = '#059669';
-    ['f-nombre','f-tiktok','f-contacto','f-mensaje'].forEach(id => {
-      document.getElementById(id).value = '';
-    });
-    document.getElementById('f-pais').selectedIndex = 0;
-  })
-  .catch(err => {
-    console.error('EmailJS error:', err);
-    btn.innerHTML = '🚀 Enviar solicitud';
-    btn.disabled = false;
-    alert('Error al enviar. Por favor escríbenos directamente a loadstarlivelatam@gmail.com');
-  });
-}
-</script>
 </html>
