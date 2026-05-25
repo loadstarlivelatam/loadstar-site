@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>LoadStar Agencia – TikTok LIVE LATAM</title>
 <link rel="icon" href="./favicon.ico">
 <link rel="icon" type="image/png" sizes="52x52" href="./favicon.png">
@@ -18,14 +18,50 @@ html{font-size:16px;scroll-behavior:smooth}
   --purple-h:#6d28d9;
   --purple-l:#a855f7;
   --white:#ffffff;
-  --muted:#9898b8;
-  --faint:#55556e;
+  --muted:rgba(255,255,255,.78);
+  --faint:rgba(255,255,255,.58);
   --border:rgba(255,255,255,.07);
   --card:rgba(255,255,255,.035);
   --max:1520px;
   --pad:clamp(16px,3vw,52px);
 }
 body{font-family:'Urbanist',system-ui,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.5}
+
+html,body{
+  width:100%;
+  max-width:100%;
+  overscroll-behavior-x:none;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body{
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+a,button,input,textarea,select,label{
+  -webkit-tap-highlight-color:transparent;
+}
+
+a,button{
+  touch-action:manipulation;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+}
+
+img,svg{
+  -webkit-user-drag:none;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+}
+
+.page{
+  overflow-x:hidden;
+}
+
 
 /* ── COSMIC BG ── */
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
@@ -149,7 +185,7 @@ nav{
   background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.36);
   border-radius:100px;padding:8px 20px;
   font-size:12.5px;font-weight:700;letter-spacing:.08em;color:var(--muted);
-  margin-bottom:34px;animation:dn .5s ease both}
+  margin-bottom:34px;animation:dn .28s ease both}
 
 .hero h1{
   font-size:64px;font-weight:800;line-height:1.05;
@@ -189,7 +225,7 @@ nav{
 .proof-txt{font-size:14px;font-weight:600;color:var(--muted)}
 
 /* ─ BANNER ─ */
-.bnr-wrap{padding:0 var(--pad) 64px;animation:up .55s .28s ease both}
+.bnr-wrap{padding:0 var(--pad) 64px;animation:up .32s .12s ease both}
 .bnr{
   max-width:var(--max);margin:0 auto;border-radius:20px;
   border:1px solid rgba(130,50,220,.4);
@@ -207,9 +243,9 @@ nav{
 .orb{position:absolute;border-radius:50%;
   background:radial-gradient(circle at 36% 30%,#d090ff 0%,#9030f0 28%,#5810b8 58%,#180430 100%);
   box-shadow:0 0 20px 4px rgba(150,60,255,.90),0 0 50px 8px rgba(110,30,220,.65),0 0 100px 12px rgba(80,15,180,.40)}
-.o1{width:90px;height:90px;top:22px;left:5%;animation:flt 7s ease-in-out infinite}
-.o2{width:126px;height:126px;top:6px;right:5%;animation:flt 9s ease-in-out infinite reverse}
-.o3{width:52px;height:52px;bottom:68px;right:18%;animation:flt 5.5s ease-in-out infinite}
+.o1{width:90px;height:90px;top:22px;left:5%;animation:flt 3.2s ease-in-out infinite}
+.o2{width:126px;height:126px;top:6px;right:5%;animation:flt 4s ease-in-out infinite reverse}
+.o3{width:52px;height:52px;bottom:68px;right:18%;animation:flt 2.8s ease-in-out infinite}
 .bnr-cnt{position:relative;z-index:3}
 .bnr-bolt{display:flex;align-items:center;justify-content:center;margin-bottom:16px;
   filter:drop-shadow(0 0 8px rgba(220,140,255,1)) drop-shadow(0 0 22px rgba(170,80,255,.95)) drop-shadow(0 0 50px rgba(130,40,240,.80))}
@@ -258,7 +294,7 @@ nav{
 .mgr-card{
   background:var(--card);border:1px solid var(--border);
   border-radius:18px;padding:28px 22px 24px;text-align:center;
-  transition:border-color .2s,transform .2s,box-shadow .2s}
+  transition:border-color .14s,transform .14s,box-shadow .14s}
 .mgr-card:hover{border-color:rgba(124,58,237,.42);transform:translateY(-5px);
   box-shadow:0 16px 40px rgba(124,58,237,.16)}
 
@@ -324,7 +360,7 @@ nav{
 .ben-card{
   background:var(--card);border:1px solid var(--border);
   border-radius:16px;padding:30px 26px;
-  transition:border-color .2s,transform .2s,box-shadow .2s}
+  transition:border-color .14s,transform .14s,box-shadow .14s}
 .ben-card:hover{border-color:rgba(124,58,237,.38);transform:translateY(-4px);
   box-shadow:0 14px 38px rgba(124,58,237,.13)}
 .ben-ico{width:54px;height:54px;border-radius:14px;
@@ -432,7 +468,7 @@ nav{
 .why-w{max-width:var(--max);margin:0 auto}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 22px;
-  transition:border-color .2s,transform .2s,box-shadow .2s}
+  transition:border-color .14s,transform .14s,box-shadow .14s}
 .card:hover{border-color:rgba(124,58,237,.38);transform:translateY(-5px);box-shadow:0 14px 40px rgba(124,58,237,.13)}
 .card-ico{width:52px;height:52px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.22);
   border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px}
@@ -459,8 +495,8 @@ nav{
 .fl-txt small{display:block;font-size:12px;font-weight:600;opacity:.8;margin-top:1px}
 
 /* ═══════ ANIMATIONS ═══════ */
-@keyframes dn{from{opacity:0;transform:translateY(-13px)}to{opacity:1;transform:translateY(0)}}
-@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
 
 /* ═══════ RESPONSIVE ═══════ */
@@ -763,6 +799,33 @@ nav{
     font-size:24px;
   }
 
+
+  /* Mobile interaction polish */
+  html,
+  body{
+    overflow-x:hidden;
+    overscroll-behavior-x:none;
+  }
+
+  body{
+    -webkit-overflow-scrolling:touch;
+  }
+
+  *{
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  a,
+  button{
+    touch-action:manipulation;
+  }
+
+  input,
+  textarea,
+  select{
+    font-size:16px;
+  }
+
 }
 
 /* ── SMALL MOBILE (≤380px) ── */
@@ -832,7 +895,7 @@ nav{
   display:flex;align-items:center;gap:14px;
   background:var(--card);border:1px solid var(--border);
   border-radius:14px;padding:14px 18px;
-  transition:border-color .18s,transform .18s}
+  transition:border-color .12s,transform .12s}
 .rk-row:hover{border-color:rgba(124,58,237,.3);transform:translateX(4px)}
 .rk-rank{
   font-size:18px;font-weight:900;min-width:28px;
@@ -891,6 +954,43 @@ nav{
   .footer-copy{text-align:center}
   .footer-links{justify-content:center}
 }
+
+/* Softer readable text upgrade */
+.card p,
+.ben-card p,
+.req-step p,
+.req-panel p,
+.faq-a-inner,
+.contact-card p,
+.form-box p,
+.sec-sub,
+.hero p,
+.proof-txt{
+  color:rgba(255,255,255,.74);
+}
+
+.footer-copy p{
+  color:rgba(255,255,255,.55);
+}
+
+.footer-copy p:first-child{
+  color:rgba(255,255,255,.72);
+}
+
+
+/* TikTok logo banner icon */
+.bnr-bolt{
+  filter:
+    drop-shadow(0 0 10px rgba(220,140,255,1))
+    drop-shadow(0 0 26px rgba(170,80,255,.95))
+    drop-shadow(0 0 60px rgba(130,40,240,.85));
+}
+
+.bnr-bolt svg{
+  width:58px;
+  height:auto;
+}
+
 </style>
 </head>
 <body>
@@ -959,9 +1059,22 @@ nav{
       <div class="orb o2"></div>
       <div class="orb o3"></div>
       <div class="bnr-cnt">
-        <div class="bnr-bolt">
-          <svg viewBox="0 0 44 68" fill="none"><defs><linearGradient id="bg" x1="22" y1="0" x2="22" y2="68" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#f0d0ff"/><stop offset="40%" stop-color="#c060ff"/><stop offset="100%" stop-color="#8020d0"/></linearGradient></defs><polygon points="26,1 4,38 20,38 18,67 40,28 24,28" fill="url(#bg)"/></svg>
-        </div>
+        
+<div class="bnr-bolt">
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tt1" x1="0" y1="0" x2="64" y2="64">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="45%" stop-color="#c084fc"/>
+        <stop offset="100%" stop-color="#7c3aed"/>
+      </linearGradient>
+    </defs>
+
+    <path d="M42 8c2 8 7 13 14 15v8c-5 0-9-1-13-4v17c0 10-7 16-17 16-9 0-16-7-16-16s7-16 16-16c1 0 2 0 3 .3v9a9 9 0 0 0-3-.5c-4 0-7 3-7 7s3 7 7 7 7-3 7-7V8h9z"
+      fill="url(#tt1)"/>
+  </svg>
+</div>
+
         <h2>Sabemos que muchos creadores dudan antes de hablar con una agencia<span>Por eso ofrecemos transparencia y apoyo real desde el primer contacto.</span></h2>
         <p class="bnr-tag">Más claridad <b>•</b> Más recursos <b>•</b> Más crecimiento </p>
       </div>
@@ -1613,6 +1726,10 @@ const PAGES = ['inicio','managers','beneficios','ranking','faq','contacto'];
 const LABELS = ['Inicio','Managers','Beneficios','Ranking','FAQ','Contacto'];
 
 function showSection(id, triggerBtn) {
+  if (id && location.hash !== '#' + id) {
+    history.replaceState(null, '', '#' + id);
+  }
+
   PAGES.forEach(p => {
     const el = document.getElementById('sec-' + p);
     if (el) el.classList.toggle('on', p === id);
@@ -1689,5 +1806,42 @@ function toggleFaq(el) {
   if (!wasOpen) item.classList.add('open');
 }
 </script>
+
+
+<script>
+/* Keep current section after refresh using URL hash */
+(function(){
+  const validSections = ['inicio','managers','beneficios','ranking','faq','contacto'];
+
+  function openSectionFromHash(){
+    const id = (location.hash || '').replace('#','');
+    if (validSections.includes(id) && typeof window.showSection === 'function') {
+      window.showSection(id);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', openSectionFromHash);
+  window.addEventListener('hashchange', openSectionFromHash);
+})();
+</script>
+
+<script>
+/* Mobile UX: prevent double-tap zoom in embedded browsers */
+(function(){
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(event){
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, { passive:false });
+
+  document.addEventListener('gesturestart', function(event){
+    event.preventDefault();
+  }, { passive:false });
+})();
+</script>
+
 </body>
 </html>
