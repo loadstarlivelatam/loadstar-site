@@ -95,7 +95,6 @@ nav{
   padding:10px 20px;
 }
 .nav-w{
-  /* 96% of viewport, never wider than 1600px */
   width:min(96vw,1600px);
   margin:0 auto;
   height:56px;padding:0 20px 0 16px;
@@ -298,7 +297,6 @@ nav{
 .mgr-card:hover{border-color:rgba(124,58,237,.42);transform:translateY(-5px);
   box-shadow:0 16px 40px rgba(124,58,237,.16)}
 
-/* avatar – large centered circle */
 .mgr-av-wrap{
   width:100px;height:100px;border-radius:50%;
   margin:0 auto 18px;position:relative;
@@ -309,7 +307,7 @@ nav{
   display:none;
   width:100%;height:100%;border-radius:50%;
   align-items:center;justify-content:center;
-  font-size:40px}/* shows 👤 emoji */
+  font-size:40px}
 
 .mgr-name{font-size:17px;font-weight:800;margin-bottom:4px;color:var(--white)}
 .mgr-role{font-size:13.5px;font-weight:700;color:var(--purple-l);margin-bottom:14px}
@@ -317,7 +315,6 @@ nav{
   font-size:13.5px;color:var(--faint);line-height:1.65;
   margin-bottom:18px}
 
-/* stats row with dividers */
 .mgr-stats{
   display:flex;justify-content:center;gap:0;
   margin-bottom:20px;
@@ -331,20 +328,18 @@ nav{
 .mgr-stat-val{font-size:17px;font-weight:800;display:block;margin-bottom:2px}
 .mgr-stat-lbl{font-size:11px;font-weight:600;color:var(--faint);display:block}
 
-/* two buttons at bottom */
 .mgr-btns{display:flex;gap:8px}
 .mgr-btn{
   flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;
   font-family:'Urbanist',sans-serif;font-size:13px;font-weight:700;
   padding:10px 6px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;
-  transition:transform .12s,box-shadow .18s;white-space:nowrap}
+  transition:transform .12px,box-shadow .18s;white-space:nowrap}
 .mgr-btn:hover{transform:translateY(-1px)}
 .mgr-tik{background:#000;color:#fff}
 .mgr-tik:hover{box-shadow:0 4px 14px rgba(0,0,0,.55)}
 .mgr-wa{background:#25d366;color:#fff}
 .mgr-wa:hover{box-shadow:0 4px 14px rgba(37,211,102,.45)}
 
-/* shared small button (used in Requisitos etc.) */
 .btn-sm{
   display:inline-flex;align-items:center;justify-content:center;gap:7px;
   background:var(--purple);color:#fff;border:none;cursor:pointer;
@@ -475,7 +470,7 @@ nav{
 .card h3{font-size:16px;font-weight:800;margin-bottom:10px}
 .card p{font-size:14px;font-weight:500;color:var(--faint);line-height:1.65}
 
-/* ═══════ FLOATING BUTTONS – always visible ═══════ */
+/* ═══════ FLOATING BUTTONS ═══════ */
 .floats{
   position:fixed;right:20px;bottom:24px;
   display:flex;flex-direction:column;gap:10px;
@@ -500,8 +495,6 @@ nav{
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
 
 /* ═══════ RESPONSIVE ═══════ */
-
-/* ── TABLET (768–1099px) ── */
 @media(max-width:1099px) and (min-width:768px){
   :root{--pad:clamp(20px,3vw,36px)}
   .nav-links{gap:16px}
@@ -523,231 +516,46 @@ nav{
   .floats{right:14px;bottom:18px;gap:10px}
 }
 
-/* ── MOBILE + narrow tablet (≤767px): carousel nav ── */
-/* ── MOBILE + narrow tablet (≤767px) ── */
 @media(max-width:767px){
-
-  :root{
-    --pad:16px;
-  }
-
-  nav{
-    padding:10px 8px;
-  }
-
-  .nav-w{
-    width:100%;
-    max-width:100%;
-    height:58px;
-    padding:0 10px;
-    gap:8px;
-    border-radius:16px;
-    overflow:hidden;
-  }
-
-  /* LOGO */
-  .logo{
-    flex:0 0 auto;
-    min-width:0;
-    gap:8px;
-  }
-
-  .logo-box{
-    width:38px;
-    height:38px;
-  }
-
-  .logo-b{
-    font-size:13px;
-    max-width:120px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-
-  .logo-s{
-    font-size:10px;
-    white-space:nowrap;
-  }
-
-  /* DESKTOP NAV HIDDEN */
-  .nav-links{
-    display:none;
-  }
-
-  /* MOBILE CAROUSEL */
-  .nav-car{
-    display:flex;
-    flex:1;
-    min-width:0;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-  }
-
-  .nav-arr{
-    width:34px;
-    height:34px;
-    border-radius:10px;
-    flex:0 0 34px;
-    font-size:16px;
-  }
-
-  .nav-slt{
-    width:90px;
-    min-width:0;
-    padding:0 4px;
-    overflow:hidden;
-  }
-
-  .slt-item button{
-    font-size:14px;
-    white-space:nowrap;
-  }
-
-  /* HIDE WHATSAPP BUTTON ON MOBILE */
-  .nav-cta{
-    display:none;
-  }
-
-  /* HERO */
-  .hero{
-    padding:52px var(--pad) 40px;
-  }
-
-  .hero h1{
-    font-size:38px;
-    letter-spacing:-.02em;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .btns{
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-  }
-
-  .btn-fill,
-  .btn-ghost{
-    width:100%;
-    max-width:320px;
-    justify-content:center;
-  }
-
-  /* BANNER */
-  .bnr h2{
-    font-size:28px;
-  }
-
-  .bnr-bolt svg{
-    width:40px;
-  }
-
-  .o1{
-    width:60px;
-    height:60px;
-    top:16px;
-    left:3%;
-  }
-
-  .o2{
-    width:80px;
-    height:80px;
-    top:10px;
-    right:3%;
-  }
-
-  .o3{
-    display:none;
-  }
-
-  /* STATS */
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .stat{
-    padding:22px 16px;
-    gap:12px;
-  }
-
-  .stat:nth-child(2){
-    border-right:none;
-  }
-
-  .stat:nth-child(3){
-    border-top:1px solid var(--border);
-  }
-
-  .stat b{
-    font-size:16px;
-  }
-
-  .stat small{
-    font-size:11px;
-  }
-
-  /* SECTIONS */
-  .sec-wrap{
-    padding:52px var(--pad);
-  }
-
-  .sec-h2{
-    font-size:28px;
-  }
-
-  .sec-sub{
-    font-size:14px;
-    margin-bottom:36px;
-  }
-
-  /* GRIDS */
-  .cards,
-  .mgr-grid,
-  .ben-grid,
-  .req-layout,
-  .contact-grid,
-  .f-row{
-    grid-template-columns:1fr;
-  }
-
-  /* MANAGER */
-  .mgr-card{
-    padding:22px 18px 18px;
-  }
-
-  .mgr-av-wrap{
-    width:86px;
-    height:86px;
-  }
-
-  /* FLOAT BUTTONS */
-  .fl-txt{
-    display:none;
-  }
-
-  .fl{
-    padding:10px;
-    border-radius:12px;
-  }
-
-  .fl-ic{
-    width:46px;
-    height:46px;
-    border-radius:12px;
-  }
-
-  .floats{
-    right:12px;
-    bottom:16px;
-    gap:8px;
-  }
-
-
-  /* Ranking mobile fix */
+  :root{--pad:16px;}
+  nav{padding:10px 8px;}
+  .nav-w{width:100%;max-width:100%;height:58px;padding:0 10px;gap:8px;border-radius:16px;overflow:hidden;}
+  .logo{flex:0 0 auto;min-width:0;gap:8px;}
+  .logo-box{width:38px;height:38px;}
+  .logo-b{font-size:13px;max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .logo-s{font-size:10px;white-space:nowrap;}
+  .nav-links{display:none;}
+  .nav-car{display:flex;flex:1;min-width:0;align-items:center;justify-content:center;gap:6px;}
+  .nav-arr{width:34px;height:34px;border-radius:10px;flex:0 0 34px;font-size:16px;}
+  .nav-slt{width:90px;min-width:0;padding:0 4px;overflow:hidden;}
+  .slt-item button{font-size:14px;white-space:nowrap;}
+  .nav-cta{display:none;}
+  .hero{padding:52px var(--pad) 40px;}
+  .hero h1{font-size:38px;letter-spacing:-.02em;}
+  .hero p{font-size:15px;}
+  .btns{flex-direction:column;align-items:center;gap:10px;}
+  .btn-fill,.btn-ghost{width:100%;max-width:320px;justify-content:center;}
+  .bnr h2{font-size:28px;}
+  .bnr-bolt svg{width:40px;}
+  .o1{width:60px;height:60px;top:16px;left:3%;}
+  .o2{width:80px;height:80px;top:10px;right:3%;}
+  .o3{display:none;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .stat{padding:22px 16px;gap:12px;}
+  .stat:nth-child(2){border-right:none;}
+  .stat:nth-child(3){border-top:1px solid var(--border);}
+  .stat b{font-size:16px;}
+  .stat small{font-size:11px;}
+  .sec-wrap{padding:52px var(--pad);}
+  .sec-h2{font-size:28px;}
+  .sec-sub{font-size:14px;margin-bottom:36px;}
+  .cards,.mgr-grid,.ben-grid,.req-layout,.contact-grid,.f-row{grid-template-columns:1fr;}
+  .mgr-card{padding:22px 18px 18px;}
+  .mgr-av-wrap{width:86px;height:86px;}
+  .fl-txt{display:none;}
+  .fl{padding:10px;border-radius:12px;}
+  .fl-ic{width:46px;height:46px;border-radius:12px;}
+  .floats{right:12px;bottom:16px;gap:8px;}
   .rk-podium{
     gap:8px;
     align-items:stretch;
@@ -755,8 +563,9 @@ nav{
 
   .rk-pod{
     min-width:0;
-    height:190px;
-    padding:16px 8px;
+    min-height:190px;
+    height:auto;
+    padding:14px 6px;
     justify-content:flex-start;
     align-items:center;
   }
@@ -769,7 +578,7 @@ nav{
     min-height:58px;
     max-height:58px;
     flex:none;
-    aspect-ratio:1 / 1;
+    aspect-ratio:1/1;
   }
 
   .rk-pod-av img{
@@ -781,54 +590,39 @@ nav{
 
   .rk-pod-name{
     width:100%;
-    height:32px;
+    min-height:32px;
+    height:auto;
     line-height:16px;
+    margin-bottom:6px;
+
     overflow:hidden;
+    text-align:center;
+
     display:-webkit-box;
     -webkit-line-clamp:2;
+    line-clamp:2;
     -webkit-box-orient:vertical;
+
     word-break:break-word;
+    overflow-wrap:anywhere;
   }
 
   .rk-pod-score{
-    margin-top:auto;
+    margin-top:0;
     font-size:12px;
   }
 
   .rk-pod-medal{
     font-size:24px;
+    margin-bottom:8px;
   }
-
-
-  /* Mobile interaction polish */
-  html,
-  body{
-    overflow-x:hidden;
-    overscroll-behavior-x:none;
-  }
-
-  body{
-    -webkit-overflow-scrolling:touch;
-  }
-
-  *{
-    -webkit-tap-highlight-color:transparent;
-  }
-
-  a,
-  button{
-    touch-action:manipulation;
-  }
-
-  input,
-  textarea,
-  select{
-    font-size:16px;
-  }
-
+  html,body{overflow-x:hidden;overscroll-behavior-x:none;}
+  body{-webkit-overflow-scrolling:touch;}
+  *{-webkit-tap-highlight-color:transparent;}
+  a,button{touch-action:manipulation;}
+  input,textarea,select{font-size:16px;}
 }
 
-/* ── SMALL MOBILE (≤380px) ── */
 @media(max-width:380px){
   .hero h1{font-size:32px}
   .stats{grid-template-columns:repeat(2,1fr)}
@@ -838,9 +632,7 @@ nav{
 }
 
 /* ═══════ RANKING ═══════ */
-.rk-nav{
-  display:flex;align-items:center;justify-content:center;
-  gap:16px;margin-bottom:36px}
+.rk-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:36px}
 .rk-nav-arr{
   width:38px;height:38px;border-radius:10px;flex-shrink:0;
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
@@ -849,23 +641,13 @@ nav{
   transition:background .15s,color .15s,border-color .15s;user-select:none}
 .rk-nav-arr:hover{background:rgba(124,58,237,.28);color:#fff;border-color:rgba(124,58,237,.5)}
 .rk-nav-arr:disabled{opacity:.25;cursor:default;pointer-events:none}
-.rk-nav-label{
-  min-width:180px;text-align:center;
-  font-size:17px;font-weight:800;color:#fff;
-  letter-spacing:-.01em}
-.rk-nav-dots{
-  display:flex;gap:5px;justify-content:center;margin-bottom:28px}
-.rk-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--border);transition:background .2s,transform .2s}
+.rk-nav-label{min-width:180px;text-align:center;font-size:17px;font-weight:800;color:#fff;letter-spacing:-.01em}
+.rk-nav-dots{display:flex;gap:5px;justify-content:center;margin-bottom:28px}
+.rk-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background .2s,transform .2s}
 .rk-dot.on{background:var(--purple-l);transform:scale(1.4)}
-
 .rk-panels{max-width:700px;margin:0 auto}
 
-/* podium top 3 */
-.rk-podium{
-  display:flex;align-items:flex-end;justify-content:center;
-  gap:12px;margin-bottom:28px}
+.rk-podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;margin-bottom:28px}
 .rk-pod{
   display:flex;flex-direction:column;align-items:center;
   background:var(--card);border:1px solid var(--border);
@@ -882,14 +664,17 @@ nav{
   font-size:20px;font-weight:800;color:#fff;
   border:3px solid rgba(255,255,255,.15);
   margin-bottom:10px;overflow:hidden;position:relative}
+.rk-pod-av::before,.rk-av::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z' fill='rgba(255,255,255,0.38)'/%3E%3C/svg%3E") no-repeat center / 40%;
+}
+.rk-pod-av::before{background-size:44%;}
 .rk-pod-av img,.rk-av img{
   width:100%;height:100%;object-fit:cover;
   position:absolute;inset:0;border-radius:50%;z-index:2}
-.rk-pod-name{font-size:12.5px;font-weight:700;color:#fff;
-  margin-bottom:6px;text-align:center;word-break:break-all}
+.rk-pod-name{font-size:12.5px;font-weight:700;color:#fff;margin-bottom:6px;text-align:center;word-break:break-all}
 .rk-pod-score{font-size:13px;font-weight:700;color:var(--purple-l)}
 
-/* list positions 4-10 */
 .rk-list{display:flex;flex-direction:column;gap:8px}
 .rk-row{
   display:flex;align-items:center;gap:14px;
@@ -897,56 +682,26 @@ nav{
   border-radius:14px;padding:14px 18px;
   transition:border-color .12s,transform .12s}
 .rk-row:hover{border-color:rgba(124,58,237,.3);transform:translateX(4px)}
-.rk-rank{
-  font-size:18px;font-weight:900;min-width:28px;
-  text-align:center;flex-shrink:0}
+.rk-rank{font-size:18px;font-weight:900;min-width:28px;text-align:center;flex-shrink:0}
 .rk-av{
   width:44px;height:44px;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
   font-size:14px;font-weight:800;color:#fff;
   overflow:hidden;position:relative}
 .rk-info{flex:1;overflow:hidden}
-.rk-uname{font-size:14.5px;font-weight:700;color:#fff;
-  display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rk-score{font-size:13.5px;font-weight:700;color:var(--purple-l);
-  flex-shrink:0;white-space:nowrap}
+.rk-uname{font-size:14.5px;font-weight:700;color:#fff;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rk-score{font-size:13.5px;font-weight:700;color:var(--purple-l);flex-shrink:0;white-space:nowrap}
 
 /* ═══════ FOOTER ═══════ */
-.site-footer{
-  border-top:1px solid var(--border);
-  padding:32px var(--pad) 28px;
-  margin-top:0;
-}
-.footer-inner{
-  max-width:var(--max);margin:0 auto;
-  display:flex;align-items:center;
-  justify-content:space-between;
-  gap:24px;flex-wrap:wrap;
-}
-.footer-logo{
-  display:flex;align-items:center;gap:10px;
-  font-size:15px;font-weight:800;color:#fff;flex-shrink:0;
-}
-.footer-logo-icon{
-  width:32px;height:32px;border-radius:8px;
-  background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.4);
-  display:flex;align-items:center;justify-content:center;font-size:15px;
-}
+.site-footer{border-top:1px solid var(--border);padding:32px var(--pad) 28px;margin-top:0;}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.footer-logo{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:#fff;flex-shrink:0;}
+.footer-logo-icon{width:32px;height:32px;border-radius:8px;background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.4);display:flex;align-items:center;justify-content:center;font-size:15px;}
 .footer-copy{text-align:center;flex:1}
-.footer-copy p{
-  font-size:12px;color:var(--faint);font-weight:500;
-  line-height:1.7;
-}
-.footer-copy p:first-child{
-  font-size:13px;font-weight:600;color:var(--muted);margin-bottom:4px;
-}
-.footer-links{
-  display:flex;gap:20px;flex-shrink:0;
-}
-.footer-links a{
-  font-size:13px;font-weight:600;color:var(--faint);
-  text-decoration:none;transition:color .15s;
-}
+.footer-copy p{font-size:12px;color:var(--faint);font-weight:500;line-height:1.7;}
+.footer-copy p:first-child{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:4px;}
+.footer-links{display:flex;gap:20px;flex-shrink:0;}
+.footer-links a{font-size:13px;font-weight:600;color:var(--faint);text-decoration:none;transition:color .15s;}
 .footer-links a:hover{color:var(--purple-l)}
 
 @media(max-width:767px){
@@ -955,42 +710,12 @@ nav{
   .footer-links{justify-content:center}
 }
 
-/* Softer readable text upgrade */
-.card p,
-.ben-card p,
-.req-step p,
-.req-panel p,
-.faq-a-inner,
-.contact-card p,
-.form-box p,
-.sec-sub,
-.hero p,
-.proof-txt{
-  color:rgba(255,255,255,.74);
-}
+.card p,.ben-card p,.req-step p,.req-panel p,.faq-a-inner,.contact-card p,.form-box p,.sec-sub,.hero p,.proof-txt{color:rgba(255,255,255,.74);}
+.footer-copy p{color:rgba(255,255,255,.55);}
+.footer-copy p:first-child{color:rgba(255,255,255,.72);}
 
-.footer-copy p{
-  color:rgba(255,255,255,.55);
-}
-
-.footer-copy p:first-child{
-  color:rgba(255,255,255,.72);
-}
-
-
-/* TikTok logo banner icon */
-.bnr-bolt{
-  filter:
-    drop-shadow(0 0 10px rgba(220,140,255,1))
-    drop-shadow(0 0 26px rgba(170,80,255,.95))
-    drop-shadow(0 0 60px rgba(130,40,240,.85));
-}
-
-.bnr-bolt svg{
-  width:58px;
-  height:auto;
-}
-
+.bnr-bolt{filter:drop-shadow(0 0 10px rgba(220,140,255,1)) drop-shadow(0 0 26px rgba(170,80,255,.95)) drop-shadow(0 0 60px rgba(130,40,240,.85));}
+.bnr-bolt svg{width:58px;height:auto;}
 </style>
 </head>
 <body>
@@ -1000,7 +725,11 @@ nav{
 <nav>
   <div class="nav-w">
     <a class="logo" href="#" onclick="showSection('inicio',this);return false">
-      <div class="logo-box"><img src="./logo.jpg" alt="LoadStar" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none;font-size:18px">⚡</span></div>
+      <div class="logo-box">
+        <img src="./logo.jpg" alt="LoadStar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <!-- ✦ CHANGED: TikTok SVG fallback instead of ⚡ -->
+        <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></span>
+      </div>
       <div>
         <span class="logo-b">LoadStar Agencia</span>
         <span class="logo-s">TikTok LIVE LATAM</span>
@@ -1037,7 +766,12 @@ nav{
 
   <section class="hero">
     <div class="hero-w">
-      <div class="pill">⚡&nbsp; Agencia para creadores en Latinoamérica</div>
+      <div class="pill">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:2px">
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+  </svg>
+  Agencia para creadores en Latinoamérica
+</div>
       <h1>Únete a una agencia real y<br>crece en <span class="hi">TikTok LIVE</span></h1>
       <p>Acompañamos a creadores que quieren avanzar con estructura, claridad y soporte real. Sin presión, sin pagos por unirse y con comunicación directa.</p>
       <div class="btns">
@@ -1069,9 +803,7 @@ nav{
         <stop offset="100%" stop-color="#7c3aed"/>
       </linearGradient>
     </defs>
-
-    <path d="M42 8c2 8 7 13 14 15v8c-5 0-9-1-13-4v17c0 10-7 16-17 16-9 0-16-7-16-16s7-16 16-16c1 0 2 0 3 .3v9a9 9 0 0 0-3-.5c-4 0-7 3-7 7s3 7 7 7 7-3 7-7V8h9z"
-      fill="url(#tt1)"/>
+    <path d="M42 8c2 8 7 13 14 15v8c-5 0-9-1-13-4v17c0 10-7 16-17 16-9 0-16-7-16-16s7-16 16-16c1 0 2 0 3 .3v9a9 9 0 0 0-3-.5c-4 0-7 3-7 7s3 7 7 7 7-3 7-7V8h9z" fill="url(#tt1)"/>
   </svg>
 </div>
 
@@ -1266,7 +998,6 @@ nav{
     <div class="sec-label"><span>LO QUE OFRECEMOS</span></div>
     <h2 class="sec-h2">Todo lo que necesitas para <span class="hi">crecer</span></h2>
     <p class="sec-sub">LoadStar no es solo una agencia, es tu equipo completo. Estos son los beneficios exclusivos para nuestros creadores.</p>
-
     <div class="ben-grid">
       <div class="ben-card"><div class="ben-ico">🛡️</div><h3>Soporte 24/7</h3><p>Un equipo disponible en todo momento para resolver dudas, solucionar problemas técnicos y guiarte en cada paso de tu crecimiento.</p><span class="ben-tag">SIEMPRE DISPONIBLE</span></div>
       <div class="ben-card"><div class="ben-ico">📈</div><h3>Estrategia personalizada</h3><p>Cada creador recibe un plan de crecimiento diseñado específicamente para su perfil, audiencia y objetivos de monetización.</p><span class="ben-tag">100% PERSONALIZADO</span></div>
@@ -1278,28 +1009,23 @@ nav{
   </div>
 </div><!-- /beneficios -->
 
-<!-- ═══ REQUISITOS ═══ -->
+<!-- ═══ RANKING ═══ -->
 <div id="sec-ranking" class="section">
   <div class="sec-wrap">
     <div class="sec-label"><span>CLASIFICACIÓN MENSUAL</span></div>
     <h2 class="sec-h2">Top 10 Creadores <span class="hi">LoadStar</span></h2>
     <p class="sec-sub">Los creadores más destacados de nuestra agencia cada mes. ¿Serás el próximo en llegar al top?</p>
 
-    <!-- Month tabs -->
-    <!-- Month carousel nav -->
     <div class="rk-nav">
       <button class="rk-nav-arr" id="rkPrev" onclick="rkMove(-1)">&#8249;</button>
       <div class="rk-nav-label" id="rkLabel">Abril 2026</div>
       <button class="rk-nav-arr" id="rkNext" onclick="rkMove(1)" disabled>&#8250;</button>
     </div>
-    <div class="rk-nav-dots"><div class="rk-dot" id="rkdot-0"></div><div class="rk-dot" id="rkdot-1"></div><div class="rk-dot" id="rkdot-2"></div><div class="rk-dot" id="rkdot-3"></div><div class="rk-dot" id="rkdot-4"></div><div class="rk-dot" id="rkdot-5"></div><div class="rk-dot" id="rkdot-6"></div><div class="rk-dot" id="rkdot-7"></div><div class="rk-dot" id="rkdot-8"></div><div class="rk-dot" id="rkdot-9"></div><div class="rk-dot" id="rkdot-10"></div><div class="rk-dot" id="rkdot-11"></div><div class="rk-doton" id="rkdot-12"></div></div>
+    <div class="rk-nav-dots"><div class="rk-dot" id="rkdot-0"></div><div class="rk-dot" id="rkdot-1"></div><div class="rk-dot" id="rkdot-2"></div><div class="rk-dot" id="rkdot-3"></div><div class="rk-dot" id="rkdot-4"></div><div class="rk-dot" id="rkdot-5"></div><div class="rk-dot" id="rkdot-6"></div><div class="rk-dot" id="rkdot-7"></div><div class="rk-dot" id="rkdot-8"></div><div class="rk-dot" id="rkdot-9"></div><div class="rk-dot" id="rkdot-10"></div><div class="rk-dot" id="rkdot-11"></div><div class="rk-dot on" id="rkdot-12"></div></div>
 
-
-    <!-- Month panels -->
     <div class="rk-panels" id="rkContainer">
       <p style="text-align:center;color:var(--muted);padding:40px 0">Cargando...</p>
     </div>
-
   </div>
 </div><!-- /ranking -->
 
@@ -1308,11 +1034,10 @@ nav{
     <div class="sec-label"><span>PREGUNTAS FRECUENTES</span></div>
     <h2 class="sec-h2">Todo lo que necesitas <span class="hi">saber</span></h2>
     <p class="sec-sub">Resolvemos las dudas más comunes sobre LoadStar Agencia y el mundo de TikTok LIVE.</p>
-
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto cobra LoadStar por sus servicios?<div class="faq-icon">+</div></div>
-        <div class="faq-a"><div class="faq-a-inner">LoadStar no cobra ningún tipo de tarifa por sus servicios. Al unirte a LoadStar, tu porcentaje de ganancias con TikTok no cambiará y tus ingresos no se reducirán. TikTok otorga incentivos adicionales a la agencia según el desempeño de los streamers, y esos incentivos no se descuentan de tus ganancias. Además, una parte de esos incentivos será devuelta a ti como apoyo y recompensa. Solo ganamos cuando tu ganas, lo que garantiza que nuestro interés se vincule a tu éxito.</div></div>
+        <div class="faq-a"><div class="faq-a-inner"> LoadStar no cobra ningún tipo de tarifa por sus servicios. Al unirte a LoadStar, tu porcentaje de ganancias con TikTok no cambiará y tus ingresos no se reducirán. TikTok otorga incentivos adicionales a la agencia según el desempeño de los streamers, y esos incentivos no se descuentan de tus ganancias. Además, una parte de esos incentivos será devuelta a ti como apoyo y recompensa. Solo ganamos cuando tu ganas, lo que garantiza que nuestro interés se vincule a tu éxito.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo tarda en verse resultados?<div class="faq-icon">+</div></div>
@@ -1352,7 +1077,6 @@ nav{
     <div class="sec-label"><span>CONTÁCTANOS</span></div>
     <h2 class="sec-h2">¿Listo para crecer con <span class="hi">LoadStar</span>?</h2>
     <p class="sec-sub">Completa el formulario o contáctanos directamente. Nuestro equipo te responderá en menos de 24 horas.</p>
-
     <div class="contact-grid">
       <div class="contact-info">
         <div class="contact-card">
@@ -1371,8 +1095,6 @@ nav{
           <div class="contact-card-ico">🕐</div>
           <div><h3>Horario de atención</h3><p>Lunes a Domingo, 24 horas<br><span style="color:var(--purple-l);font-weight:700">Siempre disponibles para ti</span></p></div>
         </div>
-
-        <!-- Requirements checklist (moved from Requisitos) -->
         <div class="req-panel" style="margin-top:8px">
           <h3>¿Qué necesitas para unirte?</h3>
           <p>Requisitos mínimos para aplicar a LoadStar Agencia:</p>
@@ -1386,7 +1108,6 @@ nav{
           </ul>
         </div>
       </div>
-
       <div class="form-box">
         <h3>Envíanos un mensaje</h3>
         <p>Cuéntanos sobre ti y te contactaremos pronto</p>
@@ -1395,44 +1116,34 @@ nav{
           <div class="f-group"><label>PAÍS</label>
             <select id="f-pais">
               <option value="">Selecciona tu país</option>
-              <option>Colombia</option>
-              <option>México</option>
-              <option>Bolivia</option>
-              <option>Perú</option>
-              <option>Chile</option>
-              <option>Argentina</option>
-              <option>República Dominicana</option>
-              <option>Honduras</option>
-              <option>Venezuela</option>
-              <option>Puerto Rico</option>
-              <option>El Salvador</option>
-              <option>Guatemala</option>
-              <option>Panamá</option>
-              <option>Paraguay</option>
-              <option>Nicaragua</option>
-              <option>Uruguay</option>
-              <option>Ecuador</option>
-              <option>Otro</option>
+              <option>Colombia</option><option>México</option><option>Bolivia</option>
+              <option>Perú</option><option>Chile</option><option>Argentina</option>
+              <option>República Dominicana</option><option>Honduras</option>
+              <option>Venezuela</option><option>Puerto Rico</option>
+              <option>El Salvador</option><option>Guatemala</option>
+              <option>Panamá</option><option>Paraguay</option>
+              <option>Nicaragua</option><option>Uruguay</option>
+              <option>Ecuador</option><option>Otro</option>
             </select>
           </div>
         </div>
         <div class="f-group"><label>USUARIO DE TIKTOK</label><input id="f-tiktok" type="text" placeholder="@tu_usuario"></div>
         <div class="f-group"><label>WHATSAPP / EMAIL</label><input id="f-contacto" type="text" placeholder="Para contactarte"></div>
         <div class="f-group"><label>MENSAJE</label><textarea id="f-mensaje" placeholder="Cuéntanos sobre tu cuenta, tus seguidores y tus objetivos..."></textarea></div>
-        <button class="btn-submit" id="btnSubmit" onclick="enviarFormulario()">
-          🚀 Enviar solicitud
-        </button>
+        <button class="btn-submit" id="btnSubmit" onclick="enviarFormulario()">🚀 Enviar solicitud</button>
       </div>
     </div>
   </div>
 </div><!-- /contacto -->
 
-
 <!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-logo">
-      <div class="footer-logo-icon" style="padding:0;overflow:hidden"><img src="./logo.jpg" alt="LoadStar" style="width:100%;height:100%;object-fit:cover;border-radius:8px" onerror="this.parentElement.innerHTML='⚡'"></div>
+      <div class="footer-logo-icon" style="padding:0;overflow:hidden">
+        <!-- ✦ CHANGED: TikTok SVG fallback instead of ⚡ -->
+        <img src="./logo.jpg" alt="LoadStar" style="width:100%;height:100%;object-fit:cover;border-radius:8px" onerror="this.parentElement.innerHTML='<svg width=\'16\' height=\'16\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z\'/></svg>'">
+      </div>
       <span>LoadStar Agencia</span>
     </div>
     <div class="footer-copy">
@@ -1448,7 +1159,7 @@ nav{
 </footer>
 </div><!-- .page -->
 
-<!-- ═══ FLOATING BUTTONS – outside .page so no transform clipping ═══ -->
+<!-- ═══ FLOATING BUTTONS ═══ -->
 <div class="floats">
   <a class="fl fl-tik" href="https://www.tiktok.com/@loadstar_latam" target="_blank">
     <div class="fl-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></div>
@@ -1461,14 +1172,11 @@ nav{
 </div>
 
 <script>
-/* ── FORM SUBMIT → EMAILJS (directo, sin abrir cliente de correo) ── */
+/* ── EMAILJS ── */
+const EJS_PUBLIC_KEY  = '97tqkW9hWMIcqXfWc';
+const EJS_SERVICE_ID  = 'service_loadstar';
+const EJS_TEMPLATE_ID = 'template_ad6ggks';
 
-// ⚠️  REEMPLAZA ESTOS 3 VALORES con los tuyos de emailjs.com
-const EJS_PUBLIC_KEY  = '97tqkW9hWMIcqXfWc';   // Account → Public Key
-const EJS_SERVICE_ID  = 'service_loadstar';   // Email Services → Service ID
-const EJS_TEMPLATE_ID = 'template_ad6ggks';  // Email Templates → Template ID
-
-// Inicializa EmailJS con tu clave pública
 (function() {
   if (typeof emailjs !== 'undefined') emailjs.init(EJS_PUBLIC_KEY);
 })();
@@ -1506,19 +1214,18 @@ function enviarFormulario() {
     document.getElementById('f-pais').selectedIndex = 0;
   })
   .catch(err => {
-   console.error('EmailJS error:', err);
-  btn.innerHTML = '🚀 Enviar solicitud';
-  btn.disabled = false;
-  alert('EmailJS error: ' + (err.text || err.message || JSON.stringify(err)));
+    console.error('EmailJS error:', err);
+    btn.innerHTML = '🚀 Enviar solicitud';
+    btn.disabled = false;
+    alert('EmailJS error: ' + (err.text || err.message || JSON.stringify(err)));
   });
 }
 
-/* ── RANKING MONTH CAROUSEL ── */
+/* ── RANKING ── */
 const RK_SLUGS  = ['abr-2025','may-2025','jun-2025','jul-2025','ago-2025','sep-2025','oct-2025','nov-2025','dic-2025','ene-2026','feb-2026','mar-2026','abr-2026'];
 const RK_LABELS = ['Abril 2025','Mayo 2025','Junio 2025','Julio 2025','Agosto 2025','Septiembre 2025','Octubre 2025','Noviembre 2025','Diciembre 2025','Enero 2026','Febrero 2026','Marzo 2026','Abril 2026'];
 let rkIdx = RK_SLUGS.length - 1;
 
-/* Slug → filesystem path */
 const RK_PATH = {
   'abr-2025':'2025/04','may-2025':'2025/05','jun-2025':'2025/06',
   'jul-2025':'2025/07','ago-2025':'2025/08','sep-2025':'2025/09',
@@ -1527,7 +1234,6 @@ const RK_PATH = {
   'abr-2026':'2026/04'
 };
 
-/* Real ranking data */
 const RK_DATA = {
   'abr-2026': [
     {n:'@ivethposadas1999',pts:2190952},{n:'@irislopez234',pts:899722},
@@ -1622,7 +1328,6 @@ const RK_DATA = {
   ]
 };
 
-/* Format points: 2190952 → "2.2M"  |  899722 → "899.7K" */
 function fmtPts(n) {
   n = Number(n) || 0;
   if (n >= 1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'') + 'M';
@@ -1630,21 +1335,20 @@ function fmtPts(n) {
   return String(n);
 }
 
-/* Initials fallback */
 function rkInit(name) {
   return name.replace(/^@/,'').slice(0,2).toUpperCase();
 }
 
-/* Build avatar img — overlays on gradient+initials fallback */
+
+/* TikTok placeholder via CSS ::before */
+
 function rkImg(slug, num, name) {
   const path = RK_PATH[slug] || '';
   const pad  = String(num).padStart(2,'0');
   const src  = `./${path}/creator_${pad}.jpg`;
-  // On error just hide the img; the gradient bg + initials text show through
-  return `<img src="${src}" alt="${name}" onerror="this.style.display='none'">`;
+  return `<img src="${src}" alt="${name}" style="opacity:0;transition:opacity .25s" onload="this.style.opacity='1'" onerror="this.style.display='none'">`;
 }
 
-/* Build one full ranking panel — uses existing CSS classes */
 function rkBuildPanel(slug) {
   const data = RK_DATA[slug] || [];
   if (!data.length) return '<p style="text-align:center;color:var(--muted);padding:40px">Sin datos disponibles</p>';
@@ -1652,7 +1356,6 @@ function rkBuildPanel(slug) {
   const COLORS = ['#c084fc','#60a5fa','#f472b6','#34d399','#fb923c',
                   '#a78bfa','#fbbf24','#f87171','#38bdf8','#86efac'];
   const medal = ['🥇','🥈','🥉'];
-  // Visual podium order: 2nd | 1st | 3rd
   const podiumOrder = [1, 0, 2];
 
   const podiumHTML = podiumOrder.map(vi => {
@@ -1663,8 +1366,7 @@ function rkBuildPanel(slug) {
     return `<div class="rk-pod rk-pod-${rank}">
       <div class="rk-pod-medal">${medal[vi]}</div>
       <div class="rk-pod-av" style="background:linear-gradient(135deg,${bg}cc,${bg}66)">
-        ${rkImg(slug, vi+1, u.n, 'lg')}
-        <span style="position:relative;z-index:0">${rkInit(u.n)}</span>
+        ${rkImg(slug, vi+1, u.n)}
       </div>
       <div class="rk-pod-name">${u.n}</div>
       <div class="rk-pod-score">${fmtPts(u.pts)} pts</div>
@@ -1677,8 +1379,7 @@ function rkBuildPanel(slug) {
     return `<div class="rk-row">
       <div class="rk-rank">${pos}</div>
       <div class="rk-av" style="background:linear-gradient(135deg,${bg}cc,${bg}55)">
-        ${rkImg(slug, pos, u.n, 'sm')}
-        <span style="position:relative;z-index:0">${rkInit(u.n)}</span>
+        ${rkImg(slug, pos, u.n)}
       </div>
       <div class="rk-info"><span class="rk-uname">${u.n}</span></div>
       <div class="rk-score">${fmtPts(u.pts)} pts</div>
@@ -1690,22 +1391,14 @@ function rkBuildPanel(slug) {
 
 function rkRender() {
   const slug = RK_SLUGS[rkIdx];
-
-  /* Panel */
   const container = document.getElementById('rkContainer');
   if (container) container.innerHTML = rkBuildPanel(slug);
-
-  /* Label */
   const lbl = document.getElementById('rkLabel');
   if (lbl) lbl.textContent = RK_LABELS[rkIdx];
-
-  /* Arrows */
   const prev = document.getElementById('rkPrev');
   const next = document.getElementById('rkNext');
   if (prev) prev.disabled = rkIdx === 0;
   if (next) next.disabled = rkIdx === RK_SLUGS.length - 1;
-
-  /* Dots */
   document.querySelectorAll('.rk-dot').forEach((d, i) => {
     d.classList.toggle('on', i === rkIdx);
   });
@@ -1721,15 +1414,13 @@ function rkMove(dir) {
 document.addEventListener('DOMContentLoaded', rkRender);
 
 /* ── SECTION SWITCHER ── */
-// reset ranking to latest month when opened
-const PAGES = ['inicio','managers','beneficios','ranking','faq','contacto'];
+const PAGES  = ['inicio','managers','beneficios','ranking','faq','contacto'];
 const LABELS = ['Inicio','Managers','Beneficios','Ranking','FAQ','Contacto'];
 
 function showSection(id, triggerBtn) {
   if (id && location.hash !== '#' + id) {
     history.replaceState(null, '', '#' + id);
   }
-
   PAGES.forEach(p => {
     const el = document.getElementById('sec-' + p);
     if (el) el.classList.toggle('on', p === id);
@@ -1748,19 +1439,17 @@ function showSection(id, triggerBtn) {
 let cur = 0;
 
 function carouselSet(newIdx, dir) {
-  if (newIdx === cur && dir) return;
+  if (newIdx === cur) return;
   const slt = document.getElementById('navSlt');
   const d = dir || (newIdx > cur ? 'n' : 'p');
   const entering = d === 'n' ? 'er' : 'el';
   const leaving  = d === 'n' ? 'll' : 'lr';
-
   const old = slt.querySelector('.slt-item.ac');
   if (old) {
     old.classList.remove('ac');
     old.classList.add(leaving);
     setTimeout(() => old.remove(), 280);
   }
-
   const el = document.createElement('div');
   el.className = 'slt-item ' + entering;
   const lbl = LABELS[newIdx];
@@ -1783,7 +1472,6 @@ document.getElementById('navP').addEventListener('click', () => {
   showSection(PAGES[prev]);
 });
 
-/* swipe */
 let tx = 0;
 const car = document.getElementById('navCar');
 car.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
@@ -1798,7 +1486,7 @@ car.addEventListener('touchend', e => {
   }
 }, {passive:true});
 
-/* ── FAQ ACCORDION ── */
+/* ── FAQ ── */
 function toggleFaq(el) {
   const item = el.parentElement;
   const wasOpen = item.classList.contains('open');
@@ -1807,36 +1495,28 @@ function toggleFaq(el) {
 }
 </script>
 
-
 <script>
-/* Keep current section after refresh using URL hash */
 (function(){
   const validSections = ['inicio','managers','beneficios','ranking','faq','contacto'];
-
   function openSectionFromHash(){
     const id = (location.hash || '').replace('#','');
     if (validSections.includes(id) && typeof window.showSection === 'function') {
       window.showSection(id);
     }
   }
-
   window.addEventListener('DOMContentLoaded', openSectionFromHash);
   window.addEventListener('hashchange', openSectionFromHash);
 })();
 </script>
 
 <script>
-/* Mobile UX: prevent double-tap zoom in embedded browsers */
 (function(){
   let lastTouchEnd = 0;
   document.addEventListener('touchend', function(event){
     const now = Date.now();
-    if (now - lastTouchEnd <= 300) {
-      event.preventDefault();
-    }
+    if (now - lastTouchEnd <= 300) { event.preventDefault(); }
     lastTouchEnd = now;
   }, { passive:false });
-
   document.addEventListener('gesturestart', function(event){
     event.preventDefault();
   }, { passive:false });
