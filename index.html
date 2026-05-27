@@ -238,16 +238,7 @@ nav.scrolled .nav-w{
 
 /* ─ BANNER ─ */
 .bnr-wrap{padding:0 var(--pad) 64px;animation:up .32s .12s ease both}
-.bnr{
-  max-width:var(--max);margin:0 auto;border-radius:20px;
-  border:1px solid rgba(130,50,220,.4);
-  background:
-    radial-gradient(ellipse 70% 55% at 15% 5%,rgba(90,20,180,.45) 0%,transparent 55%),
-    radial-gradient(ellipse 70% 55% at 85% 5%,rgba(100,25,190,.40) 0%,transparent 55%),
-    radial-gradient(ellipse 90% 50% at 50% 110%,rgba(130,50,255,.50) 0%,transparent 60%),
-    linear-gradient(175deg,#1c0e40 0%,#150a30 35%,#0f0622 100%);
-  text-align:center;position:relative;overflow:hidden;
-  padding:64px 32px 0}
+.bnr{position:relative;overflow:hidden;border:1px solid rgba(162,89,255,.35);border-radius:28px;background:linear-gradient(180deg,#2a0a52 0%,#170028 100%);padding:68px 36px 24px;min-height:340px;display:flex;align-items:center;justify-content:center;margin-top:-14px}
 .bnr::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background:
     radial-gradient(ellipse 55% 55% at 0% 0%,rgba(5,2,18,.75) 0%,transparent 60%),
@@ -265,10 +256,10 @@ nav.scrolled .nav-w{
 .bnr h2{font-size:46px;font-weight:800;line-height:1.1;letter-spacing:-.02em}
 .bnr h2 span{color:var(--purple-l);display:block;margin-top:4px}
 .bnr-tag{font-size:14.5px;font-weight:600;color:rgba(210,195,235,.75);letter-spacing:.06em;
-  margin-top:14px;padding-bottom:52px;
+  margin-top:18px;padding-bottom:36px;
   text-shadow:0 0 20px rgba(20,5,40,.9),0 2px 8px rgba(10,2,25,1)}
 .bnr-tag b{margin:0 6px;font-weight:500}
-.bnr-hor{position:absolute;bottom:0;left:0;right:0;height:160px;pointer-events:none;z-index:2;overflow:hidden}
+.bnr-hor{position:absolute;bottom:0;left:0;right:0;height:180px;pointer-events:none;z-index:2;overflow:hidden}
 .bnr-hor::before{content:'';position:absolute;bottom:-50px;left:50%;transform:translateX(-50%);
   width:130%;height:200px;
   background:radial-gradient(ellipse 80% 55% at 50% 100%,rgba(155,65,255,.92) 0%,rgba(120,40,235,.58) 22%,rgba(85,18,195,.28) 48%,transparent 70%);
@@ -279,9 +270,9 @@ nav.scrolled .nav-w{
   filter:blur(1.5px);border-radius:50%}
 
 /* ─ VIDEO TESTIMONIAL ─ */
-.vid-section{padding:clamp(48px,6vw,80px) var(--pad)}
+.vid-section{padding:clamp(4px,1.5vw,18px) var(--pad)}
 .vid-section-w{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:52px;align-items:center}
-.vid-quote-box{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.2);border-radius:14px;padding:20px 22px;margin-bottom:28px}
+.vid-quote-box{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.2);border-radius:14px;padding:20px 22px;margin-bottom:18px}
 .vid-quote-mark{font-size:32px;color:#a855f7;line-height:1;margin-bottom:6px;font-family:Georgia,serif}
 .vid-quote-text{font-size:14px;color:rgba(255,255,255,.78);line-height:1.7;font-style:italic}
 .vid-quote-author{display:flex;align-items:center;gap:10px;margin-top:14px}
@@ -449,8 +440,8 @@ nav.scrolled .nav-w{
   background:rgba(124,58,237,.08);border:1.5px solid rgba(124,58,237,.25);
   border-radius:20px;padding:36px 32px}
 .req-panel h3{font-size:22px;font-weight:800;margin-bottom:8px}
-.req-panel p{font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.65}
-.req-check{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.req-panel p{font-size:15px;color:var(--muted);margin-bottom:18px;line-height:1.65}
+.req-check{display:flex;flex-direction:column;gap:12px;margin-bottom:18px}
 .req-check li{display:flex;align-items:center;gap:12px;
   font-size:14.5px;font-weight:600;list-style:none}
 .chk{width:22px;height:22px;border-radius:6px;background:rgba(124,58,237,.2);
@@ -500,7 +491,7 @@ nav.scrolled .nav-w{
   background:var(--card);border:1px solid var(--border);
   border-radius:20px;padding:36px 32px}
 .form-box h3{font-size:22px;font-weight:800;margin-bottom:6px}
-.form-box p{font-size:14.5px;color:var(--muted);margin-bottom:28px}
+.form-box p{font-size:14.5px;color:var(--muted);margin-bottom:18px}
 .f-group{margin-bottom:18px}
 .f-group label{display:block;font-size:13px;font-weight:700;
   color:var(--muted);margin-bottom:7px;letter-spacing:.03em}
@@ -830,12 +821,12 @@ nav.scrolled .nav-w{
 .rk-nav-arr:hover{background:rgba(124,58,237,.28);color:#fff;border-color:rgba(124,58,237,.5)}
 .rk-nav-arr:disabled{opacity:.25;cursor:default;pointer-events:none}
 .rk-nav-label{min-width:180px;text-align:center;font-size:17px;font-weight:800;color:#fff;letter-spacing:-.01em}
-.rk-nav-dots{display:flex;gap:5px;justify-content:center;margin-bottom:28px}
+.rk-nav-dots{display:flex;gap:5px;justify-content:center;margin-bottom:18px}
 .rk-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background .2s,transform .2s}
 .rk-dot.on{background:var(--purple-l);transform:scale(1.4)}
 .rk-panels{max-width:700px;margin:0 auto}
 
-.rk-podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;margin-bottom:28px}
+.rk-podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;margin-bottom:18px}
 .rk-pod{
   display:flex;flex-direction:column;align-items:center;
   background:var(--card);border:1px solid var(--border);
@@ -904,6 +895,151 @@ nav.scrolled .nav-w{
 
 .bnr-bolt{filter:drop-shadow(0 0 10px rgba(220,140,255,1)) drop-shadow(0 0 26px rgba(170,80,255,.95)) drop-shadow(0 0 60px rgba(130,40,240,.85));}
 .bnr-bolt svg{width:58px;height:auto;}
+
+@media(max-width:767px){
+  .bnr{
+    min-height:auto;
+    display:block;
+    padding:52px 20px 0;
+  }
+}
+
+
+@media(max-width:767px){
+  .bnr{
+    min-height:auto!important;
+    padding:58px 20px 10px!important;
+    display:block!important;
+  }
+
+  .bnr-title{
+    font-size:clamp(26px,8vw,42px)!important;
+  }
+
+  .bnr-hor{
+    height:140px!important;
+  }
+}
+
+
+/* FIX: desktop banner centered content */
+.bnr-cnt{
+  width:100%;
+  max-width:1320px;
+  margin:0 auto;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.bnr h2{
+  text-align:center;
+  width:100%;
+}
+
+.bnr-tag{
+  width:100%;
+  text-align:center;
+  font-size:clamp(15px,1.05vw,18px);
+  line-height:1.5;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+
+@media(max-width:767px){
+  .bnr-cnt{
+    display:block;
+    text-align:center;
+  }
+
+  .bnr-tag{
+    font-size:14px;
+    text-align:center;
+  }
+}
+
+
+/* Reduce vertical spacing between sections */
+section,
+.sec,
+.block,
+.module{
+  margin-top:0!important;
+  margin-bottom:0!important;
+}
+
+@media(max-width:767px){
+  .section{
+    padding:34px var(--pad)!important;
+  }
+
+  .vid-section{
+    padding:0 var(--pad) 22px!important;
+  }
+}
+
+
+/* Desktop banner width balance */
+.bnr-cnt,
+.bnr-inner{
+  max-width:1080px!important;
+}
+
+.bnr h2,
+.bnr-title{
+  max-width:980px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  font-size:clamp(36px,4.1vw,60px)!important;
+  line-height:1.12!important;
+}
+
+.bnr-sub,
+.bnr-tag{
+  max-width:760px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+@media(max-width:1400px){
+  .bnr h2,
+  .bnr-title{
+    max-width:900px!important;
+    font-size:clamp(34px,3.8vw,54px)!important;
+  }
+}
+
+@media(max-width:767px){
+  .bnr-cnt,
+  .bnr-inner,
+  .bnr h2,
+  .bnr-title{
+    max-width:100%!important;
+  }
+}
+
+
+/* FIX: desktop 100% zoom banner aligns with nav left/right */
+@media(min-width:768px){
+  .bnr-wrap{
+    width:min(96vw,1600px)!important;
+    max-width:1600px!important;
+    margin:0 auto 28px!important;
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+
+  .bnr{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1018,7 +1154,7 @@ nav.scrolled .nav-w{
         <h2 class="sec-h2" style="text-align:left;font-size:clamp(24px,3.5vw,38px);margin-bottom:12px">
           Un creador real,<br>hablando de <span class="hi">LoadStar</span>
         </h2>
-        <p style="font-size:15px;color:rgba(255,255,255,.68);line-height:1.72;margin-bottom:28px">
+        <p style="font-size:15px;color:rgba(255,255,255,.68);line-height:1.72;margin-bottom:18px">
           Esto no lo decimos nosotros — lo dice alguien que lleva meses creciendo con nuestra agencia en TikTok LIVE.
         </p>
 
