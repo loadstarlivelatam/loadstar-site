@@ -1054,14 +1054,9 @@ nav.scrolled .nav-w{
           </div>
           <!-- ✏️ Cambia "testimonio.mp4" por el nombre real de tu archivo -->
           <video
-            class="auto-inline-video"
             src="./testimonio.mp4"
             controls
-            muted
-            autoplay
-            loop
             playsinline
-            webkit-playsinline
             preload="metadata"
             poster=""
             style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block">
@@ -1803,62 +1798,6 @@ function toggleFaq(el) {
   }
   updateNavState();
   window.addEventListener('scroll', updateNavState, {passive:true});
-})();
-</script>
-
-
-<script>
-(function(){
-  const video = document.querySelector('.auto-inline-video');
-  if(!video) return;
-
-  video.muted = true;
-  video.playsInline = true;
-  video.setAttribute('playsinline', '');
-  video.setAttribute('webkit-playsinline', '');
-  video.setAttribute('muted', '');
-  video.setAttribute('autoplay', '');
-  video.setAttribute('loop', '');
-
-  const safePlay = () => {
-    video.muted = true;
-    video.playsInline = true;
-    const promise = video.play();
-    if (promise && typeof promise.catch === 'function') {
-      promise.catch(() => {});
-    }
-  };
-
-  const safePause = () => {
-    if (!video.paused) video.pause();
-  };
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
-          safePlay();
-        } else {
-          safePause();
-        }
-      });
-    }, { threshold: [0, 0.45, 0.75] });
-
-    observer.observe(video);
-  } else {
-    window.addEventListener('scroll', () => {
-      const rect = video.getBoundingClientRect();
-      const visible = rect.top < window.innerHeight * 0.75 && rect.bottom > window.innerHeight * 0.25;
-      visible ? safePlay() : safePause();
-    }, { passive: true });
-  }
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) safePause();
-  });
-
-  // First attempt after the page has loaded. Browsers that block it will simply ignore it.
-  window.addEventListener('load', safePlay);
 })();
 </script>
 
