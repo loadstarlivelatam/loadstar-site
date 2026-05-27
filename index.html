@@ -562,6 +562,7 @@ nav.scrolled .nav-w{
 
 
 
+
 @media(max-width:767px){
   .vid-section{
     padding:28px var(--pad);
@@ -571,10 +572,10 @@ nav.scrolled .nav-w{
     display:grid;
     grid-template-columns:46% 50%;
     grid-template-areas:
-      "intro intro"
+      "intro video"
       "quote quote"
-      "cta video";
-    gap:16px 4%;
+      "cta cta";
+    gap:18px 4%;
     align-items:start;
   }
 
@@ -589,7 +590,7 @@ nav.scrolled .nav-w{
   }
 
   .vid-section-w .sec-label{
-    margin-bottom:0!important;
+    margin:0!important;
   }
 
   .vid-section-w .sec-label span{
@@ -599,9 +600,9 @@ nav.scrolled .nav-w{
   }
 
   .vid-section-w .sec-h2{
-    font-size:clamp(24px,7vw,34px)!important;
-    line-height:1.15;
-    margin:48px 0 0!important;
+    font-size:clamp(22px,6.2vw,32px)!important;
+    line-height:1.14;
+    margin:50px 0 0!important;
   }
 
   .vid-section-w .sec-h2 br{
@@ -609,10 +610,23 @@ nav.scrolled .nav-w{
   }
 
   .vid-section-w > div:first-child > p{
-    font-size:clamp(14px,4.2vw,17px)!important;
-    line-height:1.58!important;
-    margin:150px 0 0!important;
-    max-width:92%;
+    font-size:clamp(13px,3.8vw,16px)!important;
+    line-height:1.55!important;
+    margin:145px 0 0!important;
+  }
+
+  .vid-col{
+    grid-area:video;
+    align-items:flex-start;
+    justify-content:center;
+  }
+
+  .vid-wrap{
+    width:100%;
+    height:auto;
+    max-height:68vh;
+    aspect-ratio:9/16;
+    border-radius:18px;
   }
 
   .vid-quote-box{
@@ -656,50 +670,37 @@ nav.scrolled .nav-w{
     grid-area:cta;
     display:inline-flex!important;
     width:100%!important;
-    max-width:none!important;
+    max-width:360px!important;
+    justify-self:center;
     justify-content:center;
-    padding:12px 10px;
-    font-size:13px;
-    margin-top:0;
+    padding:13px 16px;
+    font-size:14px;
+    margin:0;
   }
 
   .vid-section .btn-fill .bico{
-    font-size:18px;
+    font-size:19px;
   }
 
   .vid-section .btn-fill small{
-    font-size:10px;
-  }
-
-  .vid-col{
-    grid-area:video;
-    align-items:flex-start;
-    justify-content:center;
-  }
-
-  .vid-wrap{
-    width:100%;
-    height:auto;
-    max-height:68vh;
-    aspect-ratio:9/16;
-    border-radius:18px;
+    font-size:11px;
   }
 }
 
 @media(max-width:400px){
   .vid-section-w{
     grid-template-columns:45% 51%;
-    gap:14px 4%;
+    gap:16px 4%;
   }
 
   .vid-section-w .sec-h2{
-    font-size:23px!important;
-    margin-top:46px!important;
+    font-size:21px!important;
+    margin-top:48px!important;
   }
 
   .vid-section-w > div:first-child > p{
-    font-size:13.5px!important;
-    margin-top:142px!important;
+    font-size:12.5px!important;
+    margin-top:136px!important;
   }
 
   .vid-quote-box{
@@ -708,6 +709,10 @@ nav.scrolled .nav-w{
 
   .vid-quote-text{
     font-size:12.5px;
+  }
+
+  .vid-section .btn-fill{
+    max-width:320px!important;
   }
 }
 
