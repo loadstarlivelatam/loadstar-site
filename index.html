@@ -25,7 +25,7 @@ html{font-size:16px;scroll-behavior:smooth}
   --max:1520px;
   --pad:clamp(16px,3vw,52px);
 }
-body{font-family:'Urbanist',system-ui,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.5}
+body{font-family:'Urbanist',system-ui,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.5;padding-top:76px}
 
 html,body{
   width:100%;
@@ -90,18 +90,31 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 /* ═══════ NAV ═══════ */
 nav{
-  position:sticky;top:0;z-index:200;
-  background:transparent;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:99999;
+  background:linear-gradient(180deg,rgba(7,7,15,.96),rgba(7,7,15,.66),rgba(7,7,15,0));
   padding:10px 20px;
+  transition:padding .3s ease;
+  transform:translateZ(0);
 }
 .nav-w{
   width:min(96vw,1600px);
   margin:0 auto;
   height:56px;padding:0 20px 0 16px;
   display:flex;align-items:center;justify-content:space-between;gap:16px;
-  background:rgba(12,9,24,.95);
-  border:1px solid rgba(255,255,255,.09);
+  background:rgba(12,9,24,.18);
+  border:1px solid rgba(255,255,255,.06);
   border-radius:14px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;
+}
+nav.scrolled .nav-w{
+  background:rgba(12,9,24,.92);
+  border-color:rgba(255,255,255,.11);
   backdrop-filter:blur(24px);
   -webkit-backdrop-filter:blur(24px);
 }
@@ -265,6 +278,44 @@ nav{
   background:linear-gradient(90deg,transparent 0%,rgba(190,110,255,.55) 12%,rgba(225,165,255,.92) 35%,rgba(255,225,255,1) 50%,rgba(225,165,255,.92) 65%,rgba(190,110,255,.55) 88%,transparent 100%);
   filter:blur(1.5px);border-radius:50%}
 
+/* ─ VIDEO TESTIMONIAL ─ */
+.vid-section{padding:clamp(48px,6vw,80px) var(--pad)}
+.vid-section-w{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:52px;align-items:center}
+.vid-quote-box{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.2);border-radius:14px;padding:20px 22px;margin-bottom:28px}
+.vid-quote-mark{font-size:32px;color:#a855f7;line-height:1;margin-bottom:6px;font-family:Georgia,serif}
+.vid-quote-text{font-size:14px;color:rgba(255,255,255,.78);line-height:1.7;font-style:italic}
+.vid-quote-author{display:flex;align-items:center;gap:10px;margin-top:14px}
+.vid-quote-av{width:36px;height:36px;border-radius:50%;border:2px solid rgba(124,58,237,.5);overflow:hidden;flex-shrink:0;position:relative;background:linear-gradient(135deg,#c084fc,#7c3aed)}
+.vid-quote-av img{width:100%;height:100%;object-fit:cover;display:block}
+.vid-quote-name{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.88);display:block}
+.vid-quote-pts{font-size:11.5px;font-weight:600;color:#a855f7;display:block}
+.vid-col{display:flex;justify-content:center}
+.vid-wrap{position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(124,58,237,.35);background:linear-gradient(160deg,#2a1060 0%,#1a0840 40%,#0f0622 100%);width:100%;max-height:72vh;aspect-ratio:9/16}
+.vid-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+.vid-live-badge{position:absolute;top:12px;left:12px;background:#fe2c55;color:#fff;font-size:10px;font-weight:800;letter-spacing:.05em;padding:3px 10px;border-radius:5px;display:flex;align-items:center;gap:5px;pointer-events:none;z-index:3}
+.vid-live-dot{width:5px;height:5px;border-radius:50%;background:#fff;animation:livepulse 1.2s ease-in-out infinite}
+@keyframes livepulse{0%,100%{opacity:1}50%{opacity:.3}}
+.vid-tt-badge{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.55);border-radius:7px;padding:5px 7px;display:flex;align-items:center;z-index:3;pointer-events:none}
+@media(max-width:1099px){
+  .vid-section-w{grid-template-columns:minmax(0,1fr) minmax(300px,34vw);gap:28px;align-items:stretch}
+  .vid-col{align-items:stretch}
+  .vid-wrap{height:min(680px,72vh);max-height:none}
+}
+@media(max-width:767px){
+  .vid-section-w{grid-template-columns:minmax(0,1fr) minmax(42vw,48vw);gap:16px;align-items:stretch}
+  .vid-section{padding:32px var(--pad)}
+  .vid-section-w .sec-h2{font-size:20px}
+  .vid-section-w .vid-sub{font-size:13px;margin-bottom:16px}
+  .vid-quote-box{padding:14px 16px;margin-bottom:16px}
+  .vid-quote-text{font-size:12.5px}
+  .vid-col{align-items:stretch}
+  .vid-wrap{height:min(640px,72vh);max-height:none}
+}
+@media(max-width:400px){
+  .vid-section-w{grid-template-columns:minmax(0,1fr) 44vw;gap:12px}
+  .vid-wrap{height:min(560px,68vh)}
+}
+
 /* ─ STATS ─ */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);
   border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -333,7 +384,7 @@ nav{
   flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;
   font-family:'Urbanist',sans-serif;font-size:13px;font-weight:700;
   padding:10px 6px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;
-  transition:transform .12px,box-shadow .18s;white-space:nowrap}
+  transition:transform .12s,box-shadow .18s;white-space:nowrap}
 .mgr-btn:hover{transform:translateY(-1px)}
 .mgr-tik{background:#000;color:#fff}
 .mgr-tik:hover{box-shadow:0 4px 14px rgba(0,0,0,.55)}
@@ -518,6 +569,7 @@ nav{
 
 @media(max-width:767px){
   :root{--pad:16px;}
+  body{padding-top:78px;}
   nav{padding:10px 8px;}
   .nav-w{width:100%;max-width:100%;height:58px;padding:0 10px;gap:8px;border-radius:16px;overflow:hidden;}
   .logo{flex:0 0 auto;min-width:0;gap:8px;}
@@ -556,66 +608,31 @@ nav{
   .fl{padding:10px;border-radius:12px;}
   .fl-ic{width:46px;height:46px;border-radius:12px;}
   .floats{right:12px;bottom:16px;gap:8px;}
-  .rk-podium{
-    gap:8px;
-    align-items:stretch;
-  }
-
-  .rk-pod{
-    min-width:0;
-    min-height:190px;
-    height:auto;
-    padding:14px 6px;
-    justify-content:flex-start;
-    align-items:center;
-  }
-
-  .rk-pod-av{
-    width:58px;
-    height:58px;
-    min-width:58px;
-    max-width:58px;
-    min-height:58px;
-    max-height:58px;
-    flex:none;
-    aspect-ratio:1/1;
-  }
-
-  .rk-pod-av img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:50%;
-  }
-
+  .rk-podium{gap:8px;align-items:stretch;}
+  .rk-pod{min-width:0;height:190px;padding:16px 8px;justify-content:flex-start;align-items:center;}
+  .rk-pod-av{width:58px;height:58px;min-width:58px;max-width:58px;min-height:58px;max-height:58px;flex:none;aspect-ratio:1/1;}
+  .rk-pod-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
   .rk-pod-name{
-    width:100%;
-    min-height:32px;
-    height:auto;
-    line-height:16px;
-    margin-bottom:6px;
+  width:100%;
+  min-height:32px;
+  line-height:16px;
 
-    overflow:hidden;
-    text-align:center;
+  overflow:hidden;
+  text-overflow:ellipsis;
 
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    line-clamp:2;
-    -webkit-box-orient:vertical;
+  display:-webkit-box;
+  display:box;
 
-    word-break:break-word;
-    overflow-wrap:anywhere;
-  }
+  -webkit-box-orient:vertical;
+  box-orient:vertical;
 
-  .rk-pod-score{
-    margin-top:0;
-    font-size:12px;
-  }
+  -webkit-line-clamp:2;
+  line-clamp:2;
 
-  .rk-pod-medal{
-    font-size:24px;
-    margin-bottom:8px;
-  }
+  word-break:break-word;
+}
+  .rk-pod-score{margin-top:auto;font-size:12px;}
+  .rk-pod-medal{font-size:24px;}
   html,body{overflow-x:hidden;overscroll-behavior-x:none;}
   body{-webkit-overflow-scrolling:touch;}
   *{-webkit-tap-highlight-color:transparent;}
@@ -813,6 +830,71 @@ nav{
       <div class="bnr-hor"></div>
     </div>
   </div>
+
+  <!-- ─ VIDEO TESTIMONIAL ─
+       👉 Pon tu archivo de vídeo en la misma carpeta que index.html
+          y cámbia "testimonio.mp4" por el nombre real de tu archivo.
+       👉 Actualiza también: el texto de la cita, el nombre y los puntos.
+  -->
+  <div class="vid-section">
+    <div class="vid-section-w">
+
+      <!-- Columna izquierda: texto -->
+      <div>
+        <div class="sec-label" style="text-align:left;margin-bottom:18px">
+          <span>LO QUE DICEN</span>
+        </div>
+        <h2 class="sec-h2" style="text-align:left;font-size:clamp(24px,3.5vw,38px);margin-bottom:12px">
+          Un creador real,<br>hablando de <span class="hi">LoadStar</span>
+        </h2>
+        <p style="font-size:15px;color:rgba(255,255,255,.68);line-height:1.72;margin-bottom:28px">
+          Esto no lo decimos nosotros — lo dice alguien que lleva meses creciendo con nuestra agencia en TikTok LIVE.
+        </p>
+
+        <div class="vid-quote-box">
+          <div class="vid-quote-mark">"</div>
+          <!-- ✏️ Cambia esta cita por lo que dice el creador en el vídeo -->
+          <p class="vid-quote-text">LoadStar me ha ayudado a evitar muchos contenidos que podrían causar infracciones en estos últimos meses. También ha respondido rápidamente a mis necesidades y ha cumplido sus promesas ayudándome a optimizar todo mejor.</p>
+          <div class="vid-quote-author">
+            <div class="vid-quote-av">
+                <img src="./2025/09/creator_01.jpg" alt="@giselleaviless" onerror="this.onerror=function(){this.style.display='none';this.parentElement.textContent='G';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.style.fontWeight='800';};this.src='./giselleaviless.jpg';">
+              </div>
+            <div>
+              <a class="vid-quote-name" href="https://www.tiktok.com/@giselleaviless" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">@giselleaviless</a>
+              <span class="vid-quote-pts">Creadora LoadStar · #1 Sep 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <a class="btn-fill" href="#" onclick="showSection('contacto');return false" style="display:inline-flex;width:auto">
+          <span class="bico">🚀</span>
+          <span class="btxt">Únete a LoadStar<small>Sin pagos por unirse</small></span>
+        </a>
+      </div>
+
+      <!-- Columna derecha: vídeo -->
+      <div class="vid-col">
+        <div class="vid-wrap">
+          <div class="vid-live-badge">
+            <span class="vid-live-dot"></span>LIVE
+          </div>
+          <div class="vid-tt-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+          </div>
+          <!-- ✏️ Cambia "testimonio.mp4" por el nombre real de tu archivo -->
+          <video
+            src="./testimonio.mp4"
+            controls
+            playsinline
+            preload="metadata"
+            poster=""
+            style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /vid-section -->
 
   <div class="stats">
     <div class="stat"><div class="stat-i">🏆</div><div><b>Agencia asociada a TikTok</b><small>Impulsando creadores en LATAM</small></div></div>
@@ -1037,7 +1119,7 @@ nav{
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto cobra LoadStar por sus servicios?<div class="faq-icon">+</div></div>
-        <div class="faq-a"><div class="faq-a-inner"> LoadStar no cobra ningún tipo de tarifa por sus servicios. Al unirte a LoadStar, tu porcentaje de ganancias con TikTok no cambiará y tus ingresos no se reducirán. TikTok otorga incentivos adicionales a la agencia según el desempeño de los streamers, y esos incentivos no se descuentan de tus ganancias. Además, una parte de esos incentivos será devuelta a ti como apoyo y recompensa. Solo ganamos cuando tu ganas, lo que garantiza que nuestro interés se vincule a tu éxito.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">LoadStar no cobra ningún tipo de tarifa por sus servicios. Al unirte a LoadStar, tu porcentaje de ganancias con TikTok no cambiará y tus ingresos no se reducirán. TikTok otorga incentivos adicionales a la agencia según el desempeño de los streamers, y esos incentivos no se descuentan de tus ganancias. Además, una parte de esos incentivos será devuelta a ti como apoyo y recompensa. Solo ganamos cuando tu ganas, lo que garantiza que nuestro interés se vincule a tu éxito.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo tarda en verse resultados?<div class="faq-icon">+</div></div>
@@ -1520,6 +1602,31 @@ function toggleFaq(el) {
   document.addEventListener('gesturestart', function(event){
     event.preventDefault();
   }, { passive:false });
+})();
+</script>
+
+<script>
+/* ── NAV SCROLL TRANSPARENCY ── */
+(function(){
+  var nav = document.querySelector('nav');
+  function onScroll(){
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+
+<script>
+(function loadstarFixedNavPatch(){
+  const nav = document.querySelector('nav');
+  function updateNavState(){
+    if(!nav) return;
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  }
+  updateNavState();
+  window.addEventListener('scroll', updateNavState, {passive:true});
 })();
 </script>
 
