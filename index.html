@@ -125,7 +125,7 @@ nav.scrolled .nav-w{
   width:40px;height:40px;border-radius:10px;flex-shrink:0;
   background:rgba(124,58,237,.15);border:1.5px solid rgba(124,58,237,.45);
   display:flex;align-items:center;justify-content:center;
-  font-size:18px;overflow:hidden;padding:0}
+  font-size:16px;overflow:hidden;padding:0}
 .logo-box img{width:100%;height:100%;object-fit:cover;display:block;border-radius:8px}
 .logo-b{display:block;font-size:14.5px;font-weight:800;color:#fff;line-height:1.3}
 .logo-s{display:block;font-size:11.5px;font-weight:500;color:var(--faint)}
@@ -249,7 +249,7 @@ nav.scrolled .nav-w{
 .o1{width:90px;height:90px;top:22px;left:5%;animation:flt 3.2s ease-in-out infinite}
 .o2{width:126px;height:126px;top:6px;right:5%;animation:flt 4s ease-in-out infinite reverse}
 .o3{width:52px;height:52px;bottom:68px;right:18%;animation:flt 2.8s ease-in-out infinite}
-.bnr-cnt{position:relative;z-index:3}
+.bnr-cnt{position:relative;z-index:8}
 .bnr-bolt{display:flex;align-items:center;justify-content:center;margin-bottom:16px;
   filter:drop-shadow(0 0 8px rgba(220,140,255,1)) drop-shadow(0 0 22px rgba(170,80,255,.95)) drop-shadow(0 0 50px rgba(130,40,240,.80))}
 .bnr-bolt svg{width:54px;height:auto}
@@ -815,7 +815,7 @@ nav.scrolled .nav-w{
 .rk-nav-arr{
   width:38px;height:38px;border-radius:10px;flex-shrink:0;
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-  color:var(--muted);cursor:pointer;font-size:18px;
+  color:var(--muted);cursor:pointer;font-size:16px;
   display:flex;align-items:center;justify-content:center;
   transition:background .15s,color .15s,border-color .15s;user-select:none}
 .rk-nav-arr:hover{background:rgba(124,58,237,.28);color:#fff;border-color:rgba(124,58,237,.5)}
@@ -861,7 +861,7 @@ nav.scrolled .nav-w{
   border-radius:14px;padding:14px 18px;
   transition:border-color .12s,transform .12s}
 .rk-row:hover{border-color:rgba(124,58,237,.3);transform:translateX(4px)}
-.rk-rank{font-size:18px;font-weight:900;min-width:28px;text-align:center;flex-shrink:0}
+.rk-rank{font-size:16px;font-weight:900;min-width:28px;text-align:center;flex-shrink:0}
 .rk-av{
   width:44px;height:44px;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
@@ -1084,6 +1084,155 @@ section,
   }
 }
 
+
+/* TikTok LIVE banner effects: breathing glow + floating cards */
+@keyframes bnrBreath{
+  0%,100%{filter:brightness(1) saturate(1)}
+  50%{filter:brightness(1.08) saturate(1.08)}
+}
+
+@keyframes bnrCardFloat{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(0,-10px,0)}
+}
+
+@media(min-width:768px){
+  .bnr{
+    animation:bnrBreath 4.8s ease-in-out infinite;
+  }
+
+  .bnr-float{
+    position:absolute;
+    z-index:4;
+    min-width:102px;
+    padding:10px 14px;
+    border-radius:18px;
+    background:rgba(255,255,255,.075);
+    border:1px solid rgba(255,255,255,.14);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 12px 38px rgba(0,0,0,.24),0 0 28px rgba(168,85,247,.16);
+    text-align:left;
+    pointer-events:none;
+    animation:bnrCardFloat 5.5s ease-in-out infinite;
+  }
+
+  .bnr-float-k{
+    display:block;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.12em;
+    color:rgba(255,255,255,.62);
+    line-height:1;
+    margin-bottom:6px;
+  }
+
+  .bnr-float strong{
+    display:block;
+    font-size:16px;
+    font-weight:900;
+    color:#fff;
+    line-height:1.05;
+  }
+
+  .bnr-float-1{left:4%;top:16%;}
+
+  .bnr-float-2{right:4%;top:18%;animation-delay:-1.8s;}
+
+  .bnr-float-3{right:7%;bottom:12%;left:auto;transform:none;animation-delay:-3s;}
+}
+
+@media(max-width:767px){
+  .bnr-float{
+    display:none!important;
+  }
+
+  .bnr{
+    animation:none!important;
+  }
+}
+
+/* Mobile first-screen spacing fix */
+@media(max-width:767px){
+  body{
+    padding-top:62px!important;
+  }
+
+  .hero{
+    padding-top:28px!important;
+  }
+
+  .pill{
+    margin-bottom:20px!important;
+  }
+
+  .hero h1{
+    margin-bottom:16px!important;
+  }
+}
+
+
+/* Banner floating cards layering + 5-card layout */
+@media(min-width:768px){
+  .bnr-cnt{
+    position:relative!important;
+    z-index:10!important;
+  }
+
+  .bnr-bolt,
+  .bnr h2,
+  .bnr-tag{
+    position:relative;
+    z-index:11;
+  }
+
+  .bnr-float{
+    z-index:3!important;
+    opacity:.82;
+  }
+
+  .bnr-float-1{
+    left:4%!important;
+    top:15%!important;
+  }
+
+  .bnr-float-2{
+    right:4%!important;
+    top:16%!important;
+    animation-delay:-1.3s!important;
+  }
+
+  .bnr-float-3{
+    left:6%!important;
+    bottom:14%!important;
+    right:auto!important;
+    animation-delay:-2.6s!important;
+  }
+
+  .bnr-float-4{
+    right:6%!important;
+    bottom:15%!important;
+    left:auto!important;
+    top:auto!important;
+    animation-delay:-3.7s!important;
+  }
+
+  .bnr-float-5{
+    left:calc(50% - 60px)!important;
+    bottom:9%!important;
+    top:auto!important;
+    right:auto!important;
+    animation:bnrCardFloat 6s ease-in-out infinite!important;
+    animation-delay:-4.5s!important;
+  }
+}
+
+@media(max-width:767px){
+  .bnr-float{
+    display:none!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1160,6 +1309,26 @@ section,
       <div class="orb o1"></div>
       <div class="orb o2"></div>
       <div class="orb o3"></div>
+      <div class="bnr-float bnr-float-1">
+        <span class="bnr-float-k">LIVE</span>
+        <strong>+24K</strong>
+      </div>
+      <div class="bnr-float bnr-float-2">
+        <span class="bnr-float-k">TOP</span>
+        <strong>LATAM</strong>
+      </div>
+      <div class="bnr-float bnr-float-3">
+        <span class="bnr-float-k">24/7</span>
+        <strong>Support</strong>
+      </div>
+      <div class="bnr-float bnr-float-4">
+        <span class="bnr-float-k">SAFE</span>
+        <strong>Content</strong>
+      </div>
+      <div class="bnr-float bnr-float-5">
+        <span class="bnr-float-k">GROWTH</span>
+        <strong>+120%</strong>
+      </div>
       <div class="bnr-cnt">
         
 <div class="bnr-bolt">
