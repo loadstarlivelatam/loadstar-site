@@ -1620,10 +1620,10 @@ section,
 
     <div class="rk-nav">
       <button class="rk-nav-arr" id="rkPrev" onclick="rkMove(-1)">&#8249;</button>
-      <div class="rk-nav-label" id="rkLabel">Abril 2026</div>
+      <div class="rk-nav-label" id="rkLabel">Mayo 2026</div>
       <button class="rk-nav-arr" id="rkNext" onclick="rkMove(1)" disabled>&#8250;</button>
     </div>
-    <div class="rk-nav-dots"><div class="rk-dot" id="rkdot-0"></div><div class="rk-dot" id="rkdot-1"></div><div class="rk-dot" id="rkdot-2"></div><div class="rk-dot" id="rkdot-3"></div><div class="rk-dot" id="rkdot-4"></div><div class="rk-dot" id="rkdot-5"></div><div class="rk-dot" id="rkdot-6"></div><div class="rk-dot" id="rkdot-7"></div><div class="rk-dot" id="rkdot-8"></div><div class="rk-dot" id="rkdot-9"></div><div class="rk-dot" id="rkdot-10"></div><div class="rk-dot" id="rkdot-11"></div><div class="rk-dot on" id="rkdot-12"></div></div>
+    <div class="rk-nav-dots"></div>
 
     <div class="rk-panels" id="rkContainer">
       <p style="text-align:center;color:var(--muted);padding:40px 0">Cargando...</p>
@@ -1824,8 +1824,8 @@ function enviarFormulario() {
 }
 
 /* ── RANKING ── */
-const RK_SLUGS  = ['abr-2025','may-2025','jun-2025','jul-2025','ago-2025','sep-2025','oct-2025','nov-2025','dic-2025','ene-2026','feb-2026','mar-2026','abr-2026'];
-const RK_LABELS = ['Abril 2025','Mayo 2025','Junio 2025','Julio 2025','Agosto 2025','Septiembre 2025','Octubre 2025','Noviembre 2025','Diciembre 2025','Enero 2026','Febrero 2026','Marzo 2026','Abril 2026'];
+const RK_SLUGS  = ['abr-2025','may-2025','jun-2025','jul-2025','ago-2025','sep-2025','oct-2025','nov-2025','dic-2025','ene-2026','feb-2026','mar-2026','abr-2026','may-2026'];
+const RK_LABELS = ['Abril 2025','Mayo 2025','Junio 2025','Julio 2025','Agosto 2025','Septiembre 2025','Octubre 2025','Noviembre 2025','Diciembre 2025','Enero 2026','Febrero 2026','Marzo 2026','Abril 2026','Mayo 2026'];
 let rkIdx = RK_SLUGS.length - 1;
 
 const RK_PATH = {
@@ -1833,10 +1833,17 @@ const RK_PATH = {
   'jul-2025':'2025/07','ago-2025':'2025/08','sep-2025':'2025/09',
   'oct-2025':'2025/10','nov-2025':'2025/11','dic-2025':'2025/12',
   'ene-2026':'2026/01','feb-2026':'2026/02','mar-2026':'2026/03',
-  'abr-2026':'2026/04'
+  'abr-2026':'2026/04','may-2026':'2026/05'
 };
 
 const RK_DATA = {
+  'may-2026': [
+    {n:'@ivethposadas1999',pts:4318015},{n:'@natalybordones',pts:1988192},
+    {n:'@irislopez234',pts:1703643},{n:'@mashiiiii_temu',pts:1375387	},
+    {n:'@giselleaviless',pts:1304105},{n:'@gracee_l20',pts:1268016},
+    {n:'@llanxs39',pts:1100275},{n:'@mayratzoy518',pts:969705},
+    {n:'@facuquirog4',pts:923531},{n:'@alibys_',pts:889461}
+  ],
   'abr-2026': [
     {n:'@ivethposadas1999',pts:2190952},{n:'@irislopez234',pts:899722},
     {n:'@facuquirog4',pts:765857},{n:'@gracee_l20',pts:632337},
@@ -2001,6 +2008,12 @@ function rkRender() {
   const next = document.getElementById('rkNext');
   if (prev) prev.disabled = rkIdx === 0;
   if (next) next.disabled = rkIdx === RK_SLUGS.length - 1;
+
+  // Genera automáticamente los puntos del carrusel según la cantidad de meses.
+  const dots = document.querySelector('.rk-nav-dots');
+  if (dots && dots.children.length !== RK_SLUGS.length) {
+    dots.innerHTML = RK_SLUGS.map((_, i) => `<div class="rk-dot" id="rkdot-${i}"></div>`).join('');
+  }
   document.querySelectorAll('.rk-dot').forEach((d, i) => {
     d.classList.toggle('on', i === rkIdx);
   });
