@@ -1620,7 +1620,7 @@ section,
 
     <div class="rk-nav">
       <button class="rk-nav-arr" id="rkPrev" onclick="rkMove(-1)">&#8249;</button>
-      <div class="rk-nav-label" id="rkLabel">Mayo 2026</div>
+      <div class="rk-nav-label" id="rkLabel">Octubre 2026</div>
       <button class="rk-nav-arr" id="rkNext" onclick="rkMove(1)" disabled>&#8250;</button>
     </div>
     <div class="rk-nav-dots"></div>
@@ -1824,8 +1824,8 @@ function enviarFormulario() {
 }
 
 /* ── RANKING ── */
-const RK_SLUGS  = ['abr-2025','may-2025','jun-2025','jul-2025','ago-2025','sep-2025','oct-2025','nov-2025','dic-2025','ene-2026','feb-2026','mar-2026','abr-2026','may-2026','jun-2026','jul-2026','ago-2026','sep-2026'];
-const RK_LABELS = ['Abril 2025','Mayo 2025','Junio 2025','Julio 2025','Agosto 2025','Septiembre 2025','Octubre 2025','Noviembre 2025','Diciembre 2025','Enero 2026','Febrero 2026','Marzo 2026','Abril 2026','Mayo 2026','Junio 2026','Julio 2026','Agosto 2026','Septiembre 2026'];
+const RK_SLUGS  = ['abr-2025','may-2025','jun-2025','jul-2025','ago-2025','sep-2025','oct-2025','nov-2025','dic-2025','ene-2026','feb-2026','mar-2026','abr-2026','may-2026','jun-2026','jul-2026','ago-2026','sep-2026','oct-2026'];
+const RK_LABELS = ['Abril 2025','Mayo 2025','Junio 2025','Julio 2025','Agosto 2025','Septiembre 2025','Octubre 2025','Noviembre 2025','Diciembre 2025','Enero 2026','Febrero 2026','Marzo 2026','Abril 2026','Mayo 2026','Junio 2026','Julio 2026','Agosto 2026','Septiembre 2026','Octubre 2026'];
 let rkIdx = RK_SLUGS.length - 1;
 
 const RK_PATH = {
@@ -1834,7 +1834,8 @@ const RK_PATH = {
   'oct-2025':'2025/10','nov-2025':'2025/11','dic-2025':'2025/12',
   'ene-2026':'2026/01','feb-2026':'2026/02','mar-2026':'2026/03',
   'abr-2026':'2026/04','may-2026':'2026/05','jun-2026':'2026/06',
-  'jul-2026':'2026/07','ago-2026':'2026/08','sep-2026':'2026/09'
+  'jul-2026':'2026/07','ago-2026':'2026/08','sep-2026':'2026/09',
+  'oct-2026':'2026/10'
 };
 
 const RK_DATA = {
@@ -1853,6 +1854,12 @@ const RK_DATA = {
     {n:'@escorpiana_lp',pts:447708},{n:'@girasolita0522',pts:413444},
     {n:'@raulbayas8',pts:392136},{n:'@christa.vc',pts:364425},
     {n:'@kittyoficial36',pts:355021},{n:'@nore.preciosa',pts:339574}],
+  // Octubre 2026: datos provisionales copiados de septiembre; actualizar cuando estén disponibles.
+  'oct-2026': [{n:'@ivethposadas1999',pts:5141142},{n:'@raulbayas8',pts:1447528},
+    {n:'@marymontoya_32',pts:1360090},{n:'@sheymii03',pts:1344638},
+    {n:'@xime_2310.9',pts:1261946},{n:'@shirleycoelloc',pts:1218558},
+    {n:'@yojitaa19',pts:1205074},{n:'@diannafarrera',pts:1125196},
+    {n:'@mayratzoy518',pts:1106860},{n:'@alibys_',pts:1100248}],
   'jun-2026': [
     {n:'@ivethposadas1999',pts:4448966},{n:'@mari.duarte70',pts:2585237},
     {n:'@natalybordones',pts:2106727},{n:'@irislopez234',pts:2030500},
